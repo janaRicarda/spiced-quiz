@@ -1,5 +1,6 @@
 import Card from "../Card/Card";
 import styled from "styled-components";
+import useSWR from "swr";
 
 const StyledList = styled.ul`
   list-style: none;
@@ -7,12 +8,22 @@ const StyledList = styled.ul`
   padding-left: 0;
 `;
 
-export default function CardList({ spices }) {
+export default function CardList() {
+  const { data, isLoading } = useSWR("/api/spices");
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (!data) {
+    return;
+  }
+
   return (
     <>
-      <StyledList spices={spices}>
-        {spices.map((spice) => (
-          <li key={spice.id}>
+      <StyledList>
+        {data.map((spice) => (
+          <li key={spice._id}>
             <Card question={spice.question} answer={spice.answer}></Card>
           </li>
         ))}

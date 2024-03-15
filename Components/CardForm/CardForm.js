@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useSWR from "swr";
 
 const StyledForm = styled.form`
   height: 40vh;
@@ -35,14 +36,29 @@ const StyledSubmitButton = styled.button`
 `;
 
 export default function CardForm() {
-  function handleSubmit(event) {
+  const { mutate } = useSWR("/api/spices");
+
+  async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
+    const spiceData = Object.fromEntries(formData);
 
+    const response = await fetch("/api/spices", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(spiceData),
+    });
+
+    if (!response.ok) {
+      console.error(response.status);
+      return;
+    }
+
+    mutate();
     event.target.reset();
-    event.target.focus();
   }
   return (
     <>

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
+import useSWR from "swr";
+import { useRouter } from "next/router";
 
 const StyledCard = styled.article`
   border-radius: 12px;
@@ -35,6 +37,10 @@ const StyledAnswerButton = styled.button`
 export default function Card({ question, answer }) {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const router = useRouter();
+  const { id } = router.query;
+
+  const { data, isLoading } = useSWR("/api/spices");
 
   function handleBookmark() {
     setIsBookmarked(!isBookmarked);
@@ -43,14 +49,18 @@ export default function Card({ question, answer }) {
   function handleAnswer() {
     setClicked(!clicked);
   }
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (!data) {
+    return;
+  }
+
   return (
     <StyledCard>
       <h1>{question}</h1>
-      <StyledBookmarkButton
-        type="button"
-        onClick={handleBookmark}
-        $isBookmarked
-      >
+      <StyledBookmarkButton type="button" onClick={handleBookmark}>
         {isBookmarked ? "💜" : "🧡"}
       </StyledBookmarkButton>
       <StyledAnswerButton type="button" onClick={handleAnswer}>
