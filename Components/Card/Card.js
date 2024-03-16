@@ -7,7 +7,7 @@ const StyledCard = styled.article`
   border-radius: 12px;
   background-color: white;
   color: var(--color1);
-  padding: 1rem;
+  padding: 1.5rem;
   margin: 1.5rem;
   height: 62vw;
   width: auto;
