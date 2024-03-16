@@ -14,11 +14,11 @@ const StyledFooter = styled.footer`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: hotpink;
+  color: var(--color1);
   flex: 1;
   padding: 1.5rem;
   &:hover {
-    color: pink;
+    color: hotpink;
   }
 `;
 

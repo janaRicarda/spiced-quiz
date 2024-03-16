@@ -6,11 +6,17 @@ export default createGlobalStyle`
 *::after {
   box-sizing: border-box;
 }
-
+:root {
+  --color1: darkorchid;
+  --color2: yellow;
+}
 body {
     margin: 0;
   font-family: system-ui;
-  background-image: linear-gradient(hotpink, yellow);
+  background-image: linear-gradient(darkorchid, yellow);
+  background-repeat: no-repeat;
+  
+  height: 100vh;
   
 }
 `;

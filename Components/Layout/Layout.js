@@ -6,7 +6,7 @@ const StyledHeader = styled.header`
   top: 0;
   z-index: 1;
   background-color: white;
-  color: hotpink;
+  color: var(--color1);
   width: 100%;
   text-align: center;
 `;
