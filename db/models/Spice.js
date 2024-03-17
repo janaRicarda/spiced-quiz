@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import "./Spice";
+
 const { Schema } = mongoose;
 
 const spiceSchema = new Schema({

@@ -1,21 +1,11 @@
-import styled from "styled-components";
 import Navigation from "../Navigation/Navigation";
-
-const StyledHeader = styled.header`
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  background-color: white;
-  color: var(--color1);
-  width: 100%;
-  text-align: center;
-`;
+import { StyledHeader, StyledH1 } from "./Header.styled";
 
 export default function Layout() {
   return (
     <>
       <StyledHeader>
-        <h1>SPICED QUIZ</h1>
+        <StyledH1>Spiced Quiz</StyledH1>
       </StyledHeader>
       <Navigation />
     </>

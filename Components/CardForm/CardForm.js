@@ -7,8 +7,8 @@ const StyledForm = styled.form`
 
   gap: 1rem;
   background-color: white;
-  margin-top: 100px;
-
+  margin-top: 150px;
+  margin-bottom: 200px;
   margin-left: 2rem;
   margin-right: 2rem;
   border-radius: 12px;
@@ -16,7 +16,7 @@ const StyledForm = styled.form`
 `;
 
 const StyledLabel = styled.label`
-  color: var(--color1);
+  color: var(--color-font);
 `;
 
 const StyledInput = styled.input`
@@ -24,7 +24,7 @@ const StyledInput = styled.input`
   padding: 0.5rem;
   margin-top: 0;
   border-style: none;
-  border: 1px solid var(--color1);
+  border: 1px solid var(--color-font);
   color: var(--color1);
 `;
 
@@ -32,7 +32,7 @@ const StyledSubmitButton = styled.button`
   border-style: none;
   background-color: white;
   padding: 0.5rem;
-  border: 1px solid var(--color1);
+  border: 1px solid var(--color-font);
   color: var(--color1);
   border-radius: 6px;
   width: 70px;
@@ -74,6 +74,12 @@ export default function CardForm() {
         <StyledInput id="question" name="question" type="text"></StyledInput>
         <StyledLabel htmlFor="answer">Answer:</StyledLabel>
         <StyledInput id="answer" name="answer" type="text"></StyledInput>
+        <StyledLabel htmlFor="description">Description:</StyledLabel>
+        <StyledInput
+          id="description"
+          name="description"
+          type="text"
+        ></StyledInput>
         <StyledSubmitButton>Submit</StyledSubmitButton>
       </StyledForm>
     </>

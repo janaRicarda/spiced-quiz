@@ -1,55 +1,38 @@
-import styled from "styled-components";
+import {
+  StyledCard,
+  StyledAnswerButton,
+  StyledBookmarkButton,
+  isBookmarked,
+} from "./Card.styled";
 import { useState } from "react";
+import { StyledLink } from "../Link/Link.styled";
 
-import { useRouter } from "next/router";
-
-const StyledCard = styled.article`
-  border-radius: 12px;
-  background-color: white;
-  color: var(--color1);
-  padding: 1.5rem;
-  margin: 1.5rem;
-  height: 62vw;
-  width: auto;
-  text-align: center;
-  position: relative;
-`;
-const StyledBookmarkButton = styled.button`
-  border-style: none;
-
-  font-size: 2rem;
-  border: 1px solid var(--color1);
-  border-radius: 50%;
-  background-color: ${({ $isBookmarked }) =>
-    $isBookmarked ? "black" : "white"};
-  position: absolute;
-  top: -15px;
-  right: -10px;
-`;
-
-const StyledAnswerButton = styled.button`
-  border-style: none;
-  padding: 1rem;
-  border-radius: 6px;
-  border: 1px solid var(--color1);
-  background-color: white;
-  color: var(--color1);
-`;
-
-export default function Card({ data, id, question, answer }) {
+export default function Card({ id, question, answer }) {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [clicked, setClicked] = useState(false);
 
   //const [spicesInfo, setSpicesInfo] = useState([]);
 
-  const router = useRouter();
-  //const { id } = router.query;
+  /* const router = useRouter();
+  const { id } = router.query; */
 
-  //let updatedSpices = spicesInfo.length ? spicesInfo : data;
+  //let updatedSpices = spicesInfo.length > 0 ? spicesInfo : data;
+
+  /* function handleBookmark(id) {
+    setSpicesInfo((spicesInfo) => {
+      const info = spicesInfo.find((info) => info.id === id);
+      if (info) {
+        return spicesInfo.map((info) =>
+          info.id === id ? { ...info, isBookmarked: !info.isBookmarked } : info
+        );
+      }
+      return [...spicesInfo, { id, isBookmarked: true }];
+    });
+  } */
 
   /* function handleBookmark(id) {
     setSpicesInfo(
-      data.map((spice) =>
+      updatedSpices.map((spice) =>
         spice._id === id
           ? { ...spice, isBookmarked: !spice.isBookmarked }
           : spice
@@ -66,7 +49,7 @@ export default function Card({ data, id, question, answer }) {
 
   return (
     <StyledCard>
-      <h1>{question}</h1>
+      <p>{question}</p>
       <StyledBookmarkButton
         type="button"
         onClick={() => handleBookmark()}
@@ -81,7 +64,7 @@ export default function Card({ data, id, question, answer }) {
       >
         {clicked ? "Hide answer" : "Show answer"}
       </StyledAnswerButton>
-      {clicked && <p>{answer}</p>}
+      {clicked && <StyledLink href={id}>{answer}</StyledLink>}
     </StyledCard>
   );
 }

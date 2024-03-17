@@ -1,6 +1,7 @@
 import CardList from "@/Components/CardList/CardList";
 import Head from "next/head";
 import useSWR from "swr";
+import Layout from "@/Components/Layout/Layout";
 
 export default function Bookmarkpage() {
   const { data, isLoading } = useSWR("/api/spices");
@@ -19,13 +20,14 @@ export default function Bookmarkpage() {
   const bookmarkedSpices = data
     ? data.filter((spice) => spice.isBookmarked)
     : null;
-
+  console.log(bookmarkedSpices);
   return (
     <>
       <Head>
         <title>bookmarked</title>
       </Head>
       <CardList data={bookmarkedSpices} />
+      <Layout />
     </>
   );
 }
