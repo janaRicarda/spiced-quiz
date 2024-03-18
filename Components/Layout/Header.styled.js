@@ -17,5 +17,5 @@ export const StyledH1 = styled.h1`
   margin-bottom: 0.7rem;
   margin-top: 0;
 
-  color: var(--color2);
+  color: var(--color-font);
 `;

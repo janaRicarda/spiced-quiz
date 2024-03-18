@@ -6,6 +6,7 @@ import {
 } from "./Card.styled";
 import { useState } from "react";
 import { StyledLink } from "../Link/Link.styled";
+import Chilli from "../../icons/Chilli.svg";
 
 export default function Card({ id, question, answer }) {
   const [isBookmarked, setIsBookmarked] = useState(false);

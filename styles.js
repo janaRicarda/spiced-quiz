@@ -12,8 +12,8 @@ export default createGlobalStyle`
   box-sizing: border-box;
 }
 :root {
-  --color1: #864CFF;
-  --color2: #FD7400;
+  --color1: #C49EEB;
+  --color2: #E59023;
   --color-font: #412A8C;
   --font-fat: ${abrilFatface.style.fontFamily};
 }

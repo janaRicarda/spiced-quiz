@@ -31,11 +31,10 @@ export const StyledAnswerButton = styled.button`
   border-style: none;
   padding: 1rem;
   border-radius: 6px;
-  border: 1px solid var(--color1);
-  background-color: var(--color1);
+  border: 1px solid var(--color2);
+  background-color: white;
   color: var(--color-font);
   &:hover {
-    background-color: var(--color2);
-    color: var(--color-font);
+    background-color: var(--color1);
   }
 `;
