@@ -50,7 +50,7 @@ const StyledDiv = styled.div`
   bottom: 0;
 `;
 
-export default function SpiceDetails({ detail }) {
+export default function SpiceDetails({ data }) {
   /* const router = useRouter();
   const { id } = router.query;
   const { data, isLoading } = useSWR(`/api/spices/${id}`); */
@@ -65,8 +65,8 @@ export default function SpiceDetails({ detail }) {
   return (
     <>
       <StyledArticle>
-        <StyledH1>{detail.answer}</StyledH1>
-        <p> hier könnte ein Text über {detail.answer} stehen...</p>
+        <StyledH1>{data.answer}</StyledH1>
+        <p> hier könnte ein Text über {data.answer} stehen...</p>
         <StyledButtonDiv>
           <StyledButton type="button">Edit</StyledButton>
           <StyledButton type="button">Delete</StyledButton>

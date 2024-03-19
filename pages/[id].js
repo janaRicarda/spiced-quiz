@@ -5,11 +5,11 @@ import useSWR from "swr";
 export default function DetailPage() {
   const router = useRouter();
   const { id } = router.query;
-  const { data: detail, isLoading } = useSWR(`/api/spices/${id}`);
-  console.log(detail);
+  const { data, isLoading } = useSWR(`/api/spices/${id}`);
+  console.log(data);
   return (
     <>
-      <SpiceDetails detail={detail} />
+      <SpiceDetails data={data} />
     </>
   );
 }

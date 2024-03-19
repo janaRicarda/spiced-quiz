@@ -22,7 +22,6 @@ export default function App({ Component, pageProps }) {
   // }
 
   function handleBookmark(id) {
-    console.log("bookmark");
     setDataInfo((dataInfo) => {
       const info = dataInfo.find((info) => info.id === id);
       if (info) {
