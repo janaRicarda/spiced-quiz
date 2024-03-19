@@ -5,6 +5,7 @@ import { StyledLink } from "../Link/Link.styled";
 
 const StyledArticle = styled.article`
   border-radius: 12px;
+  border: 1px solid var(--color-font);
   background-color: white;
   color: var(--color-font);
   font-weight: bold;
@@ -19,6 +20,25 @@ const StyledH1 = styled.h1`
   font-family: var(--font-fat);
   font-size: 2rem;
 `;
+const StyledButtonDiv = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+const StyledButton = styled.button`
+  border-radius: 6px;
+  color: var(--color-font);
+  padding: 0.5rem;
+  font-size: 1.3rem;
+  background-color: white;
+  border-style: none;
+  &:hover {
+    background-color: var(--color1);
+  }
+`;
+
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,6 +65,10 @@ export default function SpiceDetails() {
       <StyledArticle>
         <StyledH1>{data.answer}</StyledH1>
         <p> hier könnte ein Text über {data.answer} stehen...</p>
+        <StyledButtonDiv>
+          <StyledButton type="button">Edit</StyledButton>
+          <StyledButton type="button">Delete</StyledButton>
+        </StyledButtonDiv>
         <StyledDiv>
           <StyledLink href="/quiz">← Go back to quiz</StyledLink>
           <StyledLink href="/add">Add a new spiced question →</StyledLink>

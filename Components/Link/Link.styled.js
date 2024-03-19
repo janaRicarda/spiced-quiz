@@ -8,6 +8,6 @@ export const StyledLink = styled(Link)`
   flex: 1;
   padding: 0.5rem;
   &:hover {
-    color: var(--color2);
+    color: lightsalmon;
   }
 `;

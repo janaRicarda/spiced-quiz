@@ -20,7 +20,7 @@ export default createGlobalStyle`
 body {
     margin: 0;
   font-family: ${albertSans.style.fontFamily};
-  background-image: linear-gradient(var(--color1), var(--color2));
+  background-image: linear-gradient(lightsalmon, gold);
   background-repeat: no-repeat;
   height: 100%;
   

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styled from "styled-components";
-import { StyledLink } from "@/Components/Link/Link.styled";
+
+import Link from "next/link";
 
 const StyledSection = styled.section`
   height: 100vh;
@@ -12,23 +13,33 @@ const StyledSection = styled.section`
 `;
 
 const StyledArticle = styled.article`
-  width: 85vw;
-  height: 85vw;
+  width: 320px;
+  height: 320px;
   border: 1px solid black;
   border-radius: 50%;
-  background-image: linear-gradient(var(--color1), var(--color2));
+  background-image: linear-gradient(lightsalmon, gold);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 5rem;
+  position: relative;
 `;
 const StyledH1 = styled.h1`
+  position: absolute;
+  top: 17%;
   color: var(--color-font);
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-family: var(--font-fat);
+  line-height: 2.5rem;
   text-align: center;
   transform: rotate(-12deg);
+`;
+const StyledStartLink = styled(Link)`
+  position: absolute;
+  bottom: 20%;
+  text-decoration: none;
+  font-weight: bold;
 `;
 
 export default function StartPage() {
@@ -37,10 +48,13 @@ export default function StartPage() {
       <Head>
         <title>Spiced-Quiz</title>
       </Head>
+
       <StyledSection>
         <StyledArticle>
           <StyledH1>Welcome to the spiced Quiz!</StyledH1>
-          <StyledLink href="/quiz">→ Click here to start ←</StyledLink>
+          <StyledStartLink $startLink href="/quiz">
+            → Click here to start ←
+          </StyledStartLink>
         </StyledArticle>
       </StyledSection>
     </>

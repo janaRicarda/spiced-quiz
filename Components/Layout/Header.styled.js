@@ -8,7 +8,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   text-align: center;
   padding: 0;
-  border-bottom: 1px solid var(--color2);
+  border-bottom: 1px solid var(--color-font);
 `;
 
 export const StyledH1 = styled.h1`

@@ -3,8 +3,8 @@ import Head from "next/head";
 import useSWR from "swr";
 import Layout from "@/Components/Layout/Layout";
 
-export default function Bookmarkpage() {
-  const { data, isLoading } = useSWR("/api/spices");
+export default function Bookmarkpage({ bookmarkedSpices }) {
+  /* const { data, isLoading } = useSWR("/api/spices");
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -12,21 +12,23 @@ export default function Bookmarkpage() {
 
   if (!data) {
     return;
-  }
+  } */
   /* const bookmarkedSpices = data
     ? data.filter((spice) => spice.isBookmarked === true)
     : null; */
 
-  const bookmarkedSpices = data
+  /* const bookmarkedSpices = data
     ? data.filter((spice) => spice.isBookmarked)
-    : null;
-  console.log(bookmarkedSpices);
+    : null; */
+
   return (
     <>
       <Head>
         <title>bookmarked</title>
       </Head>
+
       <CardList data={bookmarkedSpices} />
+
       <Layout />
     </>
   );

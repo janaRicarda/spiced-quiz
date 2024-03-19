@@ -7,12 +7,22 @@ import {
 import { useState } from "react";
 import { StyledLink } from "../Link/Link.styled";
 import Chilli from "../../icons/Chilli.svg";
+import styled from "styled-components";
 
-export default function Card({ id, question, answer }) {
-  const [isBookmarked, setIsBookmarked] = useState(false);
+const StyledChilli = styled(Chilli)`
+  width: 100px;
+  height: auto;
+  fill: black;
+  color: black;
+  border: 1px solid blue;
+  background-color: black;
+`;
+
+export default function Card({ id, handleBookmark, question, answer }) {
+  // const [isBookmarked, setIsBookmarked] = useState(false);
   const [clicked, setClicked] = useState(false);
 
-  //const [spicesInfo, setSpicesInfo] = useState([]);
+  //const [dataInfo, setDataInfo] = useState([]);
 
   /* const router = useRouter();
   const { id } = router.query; */
@@ -20,14 +30,14 @@ export default function Card({ id, question, answer }) {
   //let updatedSpices = spicesInfo.length > 0 ? spicesInfo : data;
 
   /* function handleBookmark(id) {
-    setSpicesInfo((spicesInfo) => {
-      const info = spicesInfo.find((info) => info.id === id);
+    setDataInfo((dataInfo) => {
+      const info = dataInfo.find((info) => info.id === id);
       if (info) {
-        return spicesInfo.map((info) =>
+        return dataInfo.map((info) =>
           info.id === id ? { ...info, isBookmarked: !info.isBookmarked } : info
         );
       }
-      return [...spicesInfo, { id, isBookmarked: true }];
+      return [...dataInfo, { id, isBookmarked: true }];
     });
   } */
 
@@ -41,9 +51,9 @@ export default function Card({ id, question, answer }) {
     );
   }
  */
-  function handleBookmark() {
+  /* function handleBookmark() {
     setIsBookmarked(!isBookmarked);
-  }
+  } */
   function handleAnswer() {
     setClicked(!clicked);
   }
@@ -53,7 +63,7 @@ export default function Card({ id, question, answer }) {
       <p>{question}</p>
       <StyledBookmarkButton
         type="button"
-        onClick={() => handleBookmark()}
+        onClick={() => handleBookmark(id)}
         $isBookmarked={isBookmarked}
       >
         🌶️
@@ -65,7 +75,7 @@ export default function Card({ id, question, answer }) {
       >
         {clicked ? "Hide answer" : "Show answer"}
       </StyledAnswerButton>
-      {clicked && <StyledLink href={id}>{answer}</StyledLink>}
+      {clicked && <StyledLink href={id}>{answer} 🔍</StyledLink>}
     </StyledCard>
   );
 }

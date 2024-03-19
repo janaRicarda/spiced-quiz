@@ -8,10 +8,11 @@ const StyledForm = styled.form`
   gap: 1rem;
   background-color: white;
   margin-top: 150px;
-  margin-bottom: 200px;
+  margin-bottom: 60px;
   margin-left: 2rem;
   margin-right: 2rem;
   border-radius: 12px;
+  border: 1px solid var(--color-font);
   padding: 1.5rem;
 `;
 
@@ -25,7 +26,8 @@ const StyledInput = styled.input`
   margin-top: 0;
   border-style: none;
   border: 1px solid var(--color-font);
-  color: var(--color1);
+  color: var(--color-font);
+  height: ${({ $moreHeight }) => ($moreHeight ? "13rem" : null)};
 `;
 
 const StyledSubmitButton = styled.button`
@@ -33,12 +35,12 @@ const StyledSubmitButton = styled.button`
   background-color: white;
   padding: 0.5rem;
   border: 1px solid var(--color-font);
-  color: var(--color1);
+  color: var(--color-font);
   border-radius: 6px;
   width: 70px;
   align-self: center;
   &:hover {
-    background-color: var(--color2);
+    background-color: var(--color1);
   }
 `;
 
@@ -76,6 +78,7 @@ export default function CardForm() {
         <StyledInput id="answer" name="answer" type="text"></StyledInput>
         <StyledLabel htmlFor="description">Description:</StyledLabel>
         <StyledInput
+          $moreHeight
           id="description"
           name="description"
           type="text"
