@@ -2,22 +2,27 @@ import GlobalStyle from "@/styles";
 import { SWRConfig } from "swr";
 import useSWR from "swr";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function App({ Component, pageProps }) {
+  const [dataInfo, setDataInfo] = useState([]);
+  const router = useRouter();
+  const { id } = router.query;
   const { data, isLoading } = useSWR("/api/spices");
 
-  const [dataInfo, setDataInfo] = useState([]);
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
 
-  if (!data) {
-    return;
-  }
+  // if (!data) {
+  //   console.log(data);
+  //   return;
+  // }
 
   function handleBookmark(id) {
+    console.log("bookmark");
     setDataInfo((dataInfo) => {
       const info = dataInfo.find((info) => info.id === id);
       if (info) {
@@ -29,11 +34,15 @@ export default function App({ Component, pageProps }) {
     });
   }
 
-  const bookmarkedSpices = data.map((spice) => {
-    const { isBookmarked } = dataInfo.find((info) => info.id === spice.id) ?? {
-      isBookmarked: false,
-    };
-  });
+  const bookmarkedSpices = data
+    ? data.map((spice) => {
+        const { isBookmarked } = dataInfo.find(
+          (info) => info.id === spice.id
+        ) ?? {
+          isBookmarked: false,
+        };
+      })
+    : null;
 
   return (
     <SWRConfig value={{ fetcher }}>

@@ -3,7 +3,12 @@ import useSWR from "swr";
 import CardList from "@/Components/CardList/CardList";
 import Layout from "@/Components/Layout/Layout";
 
-export default function QuizPage({ data, handleBookmark }) {
+export default function QuizPage({
+  data,
+  dataInfo,
+  isBookmarked,
+  handleBookmark,
+}) {
   /* const { data, isLoading } = useSWR("/api/spices");
 
   if (isLoading) {
@@ -19,7 +24,12 @@ export default function QuizPage({ data, handleBookmark }) {
       <Head>
         <title>Quiz</title>
       </Head>
-      <CardList data={data} handleBookmark={handleBookmark} />
+      <CardList
+        data={data}
+        dataInfo={dataInfo}
+        isBookmarked={isBookmarked}
+        handleBookmark={handleBookmark}
+      />
       <Layout />
     </>
   );

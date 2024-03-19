@@ -3,7 +3,12 @@ import Card from "../Card/Card";
 
 import StyledList from "./StyledList";
 
-export default function CardList({ data, dataInfo, handleBookmark }) {
+export default function CardList({
+  data,
+  dataInfo,
+  isBookmarked,
+  handleBookmark,
+}) {
   /* const [dataInfo, setDataInfo] = useState([]);
 
   function handleBookmark(id) {
@@ -18,43 +23,48 @@ export default function CardList({ data, dataInfo, handleBookmark }) {
     });
   } */
 
-  /*  return (
-    <StyledList>
-      {data.map((spice) => (
-        <li key={spice._id}>
-          <Card
-            question={spice.question}
-            answer={spice.answer}
-            isBookmarked={spice.isBookmarked}
-            handleBookmark={handleBookmark}
-            id={`/${spice._id}`}
-          ></Card>
-        </li>
-      ))}
-    </StyledList>
-  );
-} */
-
   return (
     <StyledList>
-      {data.map((spice) => {
-        const { isBookmarked } = dataInfo.find(
-          (info) => info.id === spice.id
-        ) ?? {
-          isBookmarked: false,
-        };
-        return (
-          <li key={spice._id}>
-            <Card
-              question={spice.question}
-              answer={spice.answer}
-              id={`/${spice._id}`}
-              isBookmarked={isBookmarked}
-              handleBookmark={handleBookmark}
-            ></Card>
-          </li>
-        );
-      })}
+      {data
+        ? data.map((spice) => (
+            <li key={spice._id}>
+              <Card
+                question={spice.question}
+                answer={spice.answer}
+                isBookmarked={isBookmarked}
+                handleBookmark={handleBookmark}
+                dataInfo={dataInfo}
+                id={`/${spice._id}`}
+              ></Card>
+            </li>
+          ))
+        : null}
     </StyledList>
   );
 }
+
+/* return (
+    <StyledList>
+      {data
+        ? data.map((spice) => {
+            const { isBookmarked } = dataInfo.find(
+              (info) => info.id === spice.id
+            ) ?? {
+              isBookmarked: false,
+            };
+            return (
+              <li key={spice._id}>
+                <Card
+                  question={spice.question}
+                  answer={spice.answer}
+                  id={`/${spice._id}`}
+                  isBookmarked={isBookmarked}
+                  handleBookmark={handleBookmark}
+                ></Card>
+              </li>
+            );
+          })
+        : null}
+    </StyledList>
+  );
+} */

@@ -18,7 +18,14 @@ const StyledChilli = styled(Chilli)`
   background-color: black;
 `;
 
-export default function Card({ id, handleBookmark, question, answer }) {
+export default function Card({
+  id,
+  handleBookmark,
+  isBookmarked,
+  question,
+  answer,
+  dataInfo,
+}) {
   // const [isBookmarked, setIsBookmarked] = useState(false);
   const [clicked, setClicked] = useState(false);
 
@@ -64,6 +71,7 @@ export default function Card({ id, handleBookmark, question, answer }) {
       <StyledBookmarkButton
         type="button"
         onClick={() => handleBookmark(id)}
+        dataInfo={dataInfo}
         $isBookmarked={isBookmarked}
       >
         🌶️

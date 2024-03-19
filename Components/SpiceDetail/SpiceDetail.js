@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import styled from "styled-components";
 import { StyledLink } from "../Link/Link.styled";
+import Spice from "@/db/models/Spice";
 
 const StyledArticle = styled.article`
   border-radius: 12px;
@@ -49,22 +50,23 @@ const StyledDiv = styled.div`
   bottom: 0;
 `;
 
-export default function SpiceDetails() {
-  const router = useRouter();
+export default function SpiceDetails({ detail }) {
+  /* const router = useRouter();
   const { id } = router.query;
-  const { data, isLoading } = useSWR(`/api/spices/${id}`);
+  const { data, isLoading } = useSWR(`/api/spices/${id}`); */
 
-  if (isLoading) {
+  /* if (isLoading) {
     return <h1>Loading...</h1>;
   }
   if (!data) {
     return;
-  }
+  } */
+
   return (
     <>
       <StyledArticle>
-        <StyledH1>{data.answer}</StyledH1>
-        <p> hier könnte ein Text über {data.answer} stehen...</p>
+        <StyledH1>{detail.answer}</StyledH1>
+        <p> hier könnte ein Text über {detail.answer} stehen...</p>
         <StyledButtonDiv>
           <StyledButton type="button">Edit</StyledButton>
           <StyledButton type="button">Delete</StyledButton>
