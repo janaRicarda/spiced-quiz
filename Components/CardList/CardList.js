@@ -25,20 +25,18 @@ export default function CardList({
 
   return (
     <StyledList>
-      {data
-        ? data.map((spice) => (
-            <li key={spice._id}>
-              <Card
-                question={spice.question}
-                answer={spice.answer}
-                isBookmarked={isBookmarked}
-                handleBookmark={handleBookmark}
-                dataInfo={dataInfo}
-                id={`/${spice._id}`}
-              ></Card>
-            </li>
-          ))
-        : null}
+      {data.map((spice) => (
+        <li key={spice._id}>
+          <Card
+            question={spice.question}
+            answer={spice.answer}
+            isBookmarked={isBookmarked}
+            handleBookmark={handleBookmark}
+            dataInfo={dataInfo}
+            id={`/${spice._id}`}
+          ></Card>
+        </li>
+      ))}
     </StyledList>
   );
 }

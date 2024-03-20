@@ -27,7 +27,7 @@ export default function Card({
   dataInfo,
 }) {
   // const [isBookmarked, setIsBookmarked] = useState(false);
-  const [clicked, setClicked] = useState("false");
+  const [clicked, setClicked] = useState(false);
 
   //const [dataInfo, setDataInfo] = useState([]);
 
@@ -72,7 +72,7 @@ export default function Card({
         type="button"
         onClick={() => handleBookmark(id)}
         dataInfo={dataInfo}
-        $isBookmarked={isBookmarked}
+        $isBookmarked
       >
         🌶️
       </StyledBookmarkButton>

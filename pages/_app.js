@@ -8,8 +8,8 @@ const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function App({ Component, pageProps }) {
   const [dataInfo, setDataInfo] = useState([]);
-  const router = useRouter();
-  const { id } = router.query;
+  /* const router = useRouter();
+  const { id } = router.query; */
   const { data, isLoading } = useSWR("/api/spices");
 
   if (isLoading) {

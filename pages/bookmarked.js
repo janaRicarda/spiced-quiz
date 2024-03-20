@@ -3,7 +3,12 @@ import Head from "next/head";
 import useSWR from "swr";
 import Layout from "@/Components/Layout/Layout";
 
-export default function Bookmarkpage({ bookmarkedSpices }) {
+export default function Bookmarkpage({
+  bookmarkedSpices,
+  dataInfo,
+  isBookmarked,
+  handleBookmark,
+}) {
   /* const { data, isLoading } = useSWR("/api/spices");
 
   if (isLoading) {
@@ -27,7 +32,12 @@ export default function Bookmarkpage({ bookmarkedSpices }) {
         <title>bookmarked</title>
       </Head>
 
-      <CardList data={bookmarkedSpices} />
+      <CardList
+        data={bookmarkedSpices}
+        dataInfo={dataInfo}
+        isBookmarked={isBookmarked}
+        handleBookmark={handleBookmark}
+      />
 
       <Layout />
     </>
