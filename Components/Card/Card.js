@@ -68,11 +68,10 @@ export default function Card({
       <p>{question}</p>
       <StyledBookmarkButton
         type="button"
-        onClick={() => handleBookmark(id)}
+        onClick={handleBookmark(id)}
         dataInfo={dataInfo}
-        $isBookmarked
       >
-        🌶️
+        {isBookmarked ? "remove" : "add"}️
       </StyledBookmarkButton>
       <StyledAnswerButton
         type="button"

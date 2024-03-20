@@ -54,7 +54,7 @@ const StyledDiv = styled.div`
 export default function DetailPage() {
   const router = useRouter();
   const { id } = router.query;
-  const { data: spice, isLoading } = useSWR(`/api/spices/${id}`);
+  const { data, isLoading } = useSWR(`/api/spices/${id}`);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -63,8 +63,8 @@ export default function DetailPage() {
   return (
     <>
       <StyledArticle>
-        <StyledH1>{spice.answer}</StyledH1>
-        <p> hier könnte ein Text über {spice.answer} stehen...</p>
+        <StyledH1>{data.answer}</StyledH1>
+        <p> hier könnte ein Text über {data.answer} stehen...</p>
         <StyledButtonDiv>
           <StyledButton type="button">Edit</StyledButton>
           <StyledButton type="button">Delete</StyledButton>

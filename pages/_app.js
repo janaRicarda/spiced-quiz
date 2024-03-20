@@ -1,18 +1,18 @@
 import GlobalStyle from "@/styles";
 import { SWRConfig } from "swr";
 import useSWR from "swr";
-import { useState } from "react";
+//import { useState } from "react";
 import { useRouter } from "next/router";
-//import useLocalStorageState from "use-local-storage-state";
+import useLocalStorageState from "use-local-storage-state";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  const [dataInfo, setDataInfo] = useState([]);
-  /* const [dataInfo, setDataInfo] = useLocalStorageState("dataInfo", {
+  // const [dataInfo, setDataInfo] = useState([]);
+  const [dataInfo, setDataInfo] = useLocalStorageState("dataInfo", {
     defaultValue: [],
-  }); */
+  });
 
   const { data, isLoading, mutate } = useSWR("/api/spices", fetcher);
 
@@ -57,7 +57,7 @@ export default function App({ Component, pageProps }) {
     });
   }
 
-  const bookmarkedSpices = data
+  /* const bookmarkedSpices = data
     ? data.map((spice) => {
         const { isBookmarked } = dataInfo.find(
           (info) => info.id === spice.id
@@ -65,7 +65,9 @@ export default function App({ Component, pageProps }) {
           isBookmarked: false,
         };
       })
-    : null;
+    : null; */
+
+  const bookmarkedSpices = dataInfo.filter((info) => info.isBookmarked);
 
   return (
     <SWRConfig value={{ fetcher }}>

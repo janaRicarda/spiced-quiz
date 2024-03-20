@@ -23,7 +23,7 @@ export default function CardList({
     });
   } */
 
-  return (
+  /*  return (
     <StyledList>
       {data.map((spice) => (
         <li key={spice._id}>
@@ -39,30 +39,28 @@ export default function CardList({
       ))}
     </StyledList>
   );
-}
+} */
 
-/* return (
+  return (
     <StyledList>
-      {data
-        ? data.map((spice) => {
-            const { isBookmarked } = dataInfo.find(
-              (info) => info.id === spice.id
-            ) ?? {
-              isBookmarked: false,
-            };
-            return (
-              <li key={spice._id}>
-                <Card
-                  question={spice.question}
-                  answer={spice.answer}
-                  id={`/${spice._id}`}
-                  isBookmarked={isBookmarked}
-                  handleBookmark={handleBookmark}
-                ></Card>
-              </li>
-            );
-          })
-        : null}
+      {data.map((spice) => {
+        const { isBookmarked } = dataInfo.find(
+          (info) => info.id === spice._id
+        ) ?? {
+          isBookmarked: false,
+        };
+        return (
+          <li key={spice._id}>
+            <Card
+              question={spice.question}
+              answer={spice.answer}
+              id={`/${spice._id}`}
+              isBookmarked={isBookmarked}
+              handleBookmark={handleBookmark}
+            ></Card>
+          </li>
+        );
+      })}
     </StyledList>
   );
-} */
+}
