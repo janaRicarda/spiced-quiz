@@ -44,10 +44,10 @@ const StyledSubmitButton = styled.button`
   }
 `;
 
-export default function CardForm() {
-  const { mutate } = useSWR("/api/spices");
+export default function CardForm({ handleSubmit }) {
+  /*  const { mutate } = useSWR("/api/spices");
 
-  async function handleSubmit(event) {
+  /* async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -64,11 +64,11 @@ export default function CardForm() {
     if (!response.ok) {
       console.error(response.status);
       return;
-    }
+    } */
 
-    mutate();
+  /* mutate();
     event.target.reset();
-  }
+  } */
   return (
     <>
       <StyledForm onSubmit={handleSubmit}>

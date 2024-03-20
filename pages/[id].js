@@ -43,6 +43,7 @@ const StyledButton = styled.button`
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
+
   padding-top: 1rem;
   padding-bottom: 1rem;
   border-top: 1px solid var(--color-font);

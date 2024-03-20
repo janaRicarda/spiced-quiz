@@ -6,16 +6,14 @@ import {
 } from "./Card.styled";
 import { useState } from "react";
 import { StyledLink } from "../Link/Link.styled";
-import Chilli from "../../icons/Chilli.svg";
+import Chilli from "../../icons/chilli.svg";
 import styled from "styled-components";
 
 const StyledChilli = styled(Chilli)`
-  width: 100px;
-  height: auto;
+  width: 40px;
+  height: 40px;
   fill: black;
   color: black;
-  border: 1px solid blue;
-  background-color: black;
 `;
 
 export default function Card({

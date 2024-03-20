@@ -1,19 +1,14 @@
 import Head from "next/head";
-import useSWR from "swr";
+
 import CardList from "@/Components/CardList/CardList";
 import Layout from "@/Components/Layout/Layout";
 
-export default function QuizPage({ dataInfo, isBookmarked, handleBookmark }) {
-  const { data, isLoading } = useSWR("/api/spices");
-
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
-
-  /* if (!data) {
-    return;
-  } */
-
+export default function QuizPage({
+  data,
+  dataInfo,
+  isBookmarked,
+  handleBookmark,
+}) {
   return (
     <>
       <Head>

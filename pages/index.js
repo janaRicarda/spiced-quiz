@@ -40,6 +40,12 @@ const StyledStartLink = styled(Link)`
   bottom: 20%;
   text-decoration: none;
   font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 6px;
+  &:hover {
+    background-color: var(--color-font);
+    color: gold;
+  }
 `;
 
 export default function StartPage() {

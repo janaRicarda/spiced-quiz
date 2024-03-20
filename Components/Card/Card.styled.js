@@ -22,7 +22,7 @@ export const StyledBookmarkButton = styled.button`
   border: 1px solid var(--color-font);
   border-radius: 50%;
   background-color: ${({ $isBookmarked }) =>
-    $isBookmarked ? "var(--color-font)" : "white"};
+    $isBookmarked ? "white" : "white"};
 
   position: absolute;
   top: -15px;
