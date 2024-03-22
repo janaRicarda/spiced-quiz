@@ -65,6 +65,30 @@ export default function SpiceDetails({ data }) {
   return (
     <>
       <StyledArticle>
+        <StyledLink href="/quiz">← Go back to quiz</StyledLink>
+        <StyledH1>{data.answer}</StyledH1>
+        <StyledP> hier könnte ein Text über {data.answer} stehen...</StyledP>
+        <StyledButtonDiv>
+          <StyledButton
+            type="button"
+            onClick={() => {
+              setIsEditMode(!isEditMode);
+            }}
+          >
+            Edit
+          </StyledButton>
+          <StyledButton type="button" onClick={() => handleDelete(id)}>
+            Delete
+          </StyledButton>
+        </StyledButtonDiv>
+        <StyledDiv>
+          <StyledLink href="/add">Add a new spiced question →</StyledLink>
+        </StyledDiv>
+      </StyledArticle>
+      {isEditMode && (
+        <CardForm onSubmit={handleEdit} value={data} isEditMode={true} />
+      )}
+      {/*  <StyledArticle>
         <StyledH1>{data.answer}</StyledH1>
         <p> hier könnte ein Text über {data.answer} stehen...</p>
         <StyledButtonDiv>
@@ -75,7 +99,7 @@ export default function SpiceDetails({ data }) {
           <StyledLink href="/quiz">← Go back to quiz</StyledLink>
           <StyledLink href="/add">Add a new spiced question →</StyledLink>
         </StyledDiv>
-      </StyledArticle>
+      </StyledArticle> */}
     </>
   );
 }

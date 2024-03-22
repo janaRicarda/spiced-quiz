@@ -81,7 +81,11 @@ export default function DetailPage() {
     });
 
     if (response.ok) {
+      console.log("yes");
       mutate();
+    }
+    if (!response.ok) {
+      console.log(response.status);
     }
   }
 
@@ -89,8 +93,10 @@ export default function DetailPage() {
     const response = await fetch(`/api/spices/${id}`, {
       method: "DELETE",
     });
+
     if (response.ok) {
-      router.push("/quiz");
+      mutate();
+      router.push("/spices");
     }
     if (!response.ok) {
       console.log(response.status);
@@ -107,7 +113,7 @@ export default function DetailPage() {
   return (
     <>
       <StyledArticle>
-        <StyledLink href="/quiz">← Go back to quiz</StyledLink>
+        <StyledLink href="/spices">← Go back to quiz</StyledLink>
         <StyledH1>{data.answer}</StyledH1>
         <StyledP> hier könnte ein Text über {data.answer} stehen...</StyledP>
         <StyledButtonDiv>

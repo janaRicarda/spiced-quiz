@@ -1,6 +1,6 @@
 import CardList from "@/Components/CardList/CardList";
 import Head from "next/head";
-import useSWR from "swr";
+//import useSWR from "swr";
 import Layout from "@/Components/Layout/Layout";
 
 export default function Bookmarkpage({
@@ -31,14 +31,12 @@ export default function Bookmarkpage({
       <Head>
         <title>bookmarked</title>
       </Head>
-
       <CardList
         data={bookmarkedSpices}
-        dataInfo={dataInfo}
+        // dataInfo={dataInfo}
         isBookmarked={isBookmarked}
         handleBookmark={handleBookmark}
       />
-
       <Layout />
     </>
   );

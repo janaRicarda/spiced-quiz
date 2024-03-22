@@ -22,7 +22,7 @@ export default function Card({
   isBookmarked,
   question,
   answer,
-  dataInfo,
+  // dataInfo,
 }) {
   // const [isBookmarked, setIsBookmarked] = useState(false);
   const [clicked, setClicked] = useState(false);
@@ -69,8 +69,8 @@ export default function Card({
       <StyledBookmarkButton
         type="button"
         onClick={() => handleBookmark(id)}
-        dataInfo={dataInfo}
-        $isBookmarked
+        /* dataInfo={dataInfo} */
+        $bookmark={isBookmarked}
       >
         🌶️
       </StyledBookmarkButton>
@@ -81,7 +81,7 @@ export default function Card({
       >
         {clicked ? "Hide answer" : "Show answer"}
       </StyledAnswerButton>
-      {clicked && <StyledLink href={id}>{answer} 🔍</StyledLink>}
+      {clicked && <StyledLink href={`/spices/${id}`}>{answer} 🔍</StyledLink>}
     </StyledCard>
   );
 }

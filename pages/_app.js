@@ -41,11 +41,12 @@ export default function App({ Component, pageProps }) {
 
     if (response.ok) {
       mutate();
-      router.push("/quiz");
+      router.push("/spices");
     }
   }
 
   function handleBookmark(id) {
+    console.log("bookmark");
     setDataInfo((dataInfo) => {
       const info = dataInfo.find((info) => info.id === id);
       if (info) {

@@ -16,8 +16,8 @@ export default async function handler(request, response) {
   }
 
   if (request.method === "PUT") {
-    const updatedSpice = request.body;
-    await Spice.findByIdAndUpdate(id, updatedSpice);
+    const spiceData = request.body;
+    await Spice.findByIdAndUpdate(id, spiceData);
     return response.status(200).json({ status: "Spice updated!" });
   }
 

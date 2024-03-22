@@ -8,6 +8,8 @@ export default function CardList({
   dataInfo,
   isBookmarked,
   handleBookmark,
+  question,
+  answer,
 }) {
   /* const [dataInfo, setDataInfo] = useState([]);
 
@@ -32,7 +34,7 @@ export default function CardList({
             answer={spice.answer}
             isBookmarked={isBookmarked}
             handleBookmark={handleBookmark}
-            dataInfo={dataInfo}
+            // dataInfo={dataInfo}
             id={`/${spice._id}`}
           ></Card>
         </li>

@@ -58,7 +58,7 @@ export default function StartPage() {
       <StyledSection>
         <StyledArticle>
           <StyledH1>Welcome to the spiced Quiz!</StyledH1>
-          <StyledStartLink $startLink href="/quiz">
+          <StyledStartLink $startLink href="/spices">
             → Click here to start ←
           </StyledStartLink>
         </StyledArticle>
