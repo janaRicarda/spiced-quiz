@@ -7,7 +7,7 @@ const StyledForm = styled.form`
 
   gap: 1rem;
   background-color: white;
-  margin-top: 150px;
+  margin-top: ${({ $edit }) => ($edit ? "2rem" : "150px")};
   margin-bottom: 60px;
   margin-left: 2rem;
   margin-right: 2rem;
@@ -44,46 +44,35 @@ const StyledSubmitButton = styled.button`
   }
 `;
 
-export default function CardForm({ handleSubmit }) {
-  /*  const { mutate } = useSWR("/api/spices");
-
-  /* async function handleSubmit(event) {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-    const spiceData = Object.fromEntries(formData);
-
-    const response = await fetch("/api/spices", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(spiceData),
-    });
-
-    if (!response.ok) {
-      console.error(response.status);
-      return;
-    } */
-
-  /* mutate();
-    event.target.reset();
-  } */
+export default function CardForm({ handleSubmit, value, isEditMode }) {
   return (
     <>
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm $edit={isEditMode} onSubmit={handleSubmit}>
         <StyledLabel htmlFor="question">Question:</StyledLabel>
-        <StyledInput id="question" name="question" type="text"></StyledInput>
+        <StyledInput
+          id="question"
+          name="question"
+          type="text"
+          defaultValue={value.question}
+        />
+
         <StyledLabel htmlFor="answer">Answer:</StyledLabel>
-        <StyledInput id="answer" name="answer" type="text"></StyledInput>
+        <StyledInput
+          id="answer"
+          name="answer"
+          type="text"
+          defaultValue={value.answer}
+        />
+
         <StyledLabel htmlFor="description">Description:</StyledLabel>
         <StyledInput
           $moreHeight
           id="description"
           name="description"
           type="text"
-        ></StyledInput>
-        <StyledSubmitButton>Submit</StyledSubmitButton>
+        />
+
+        <StyledSubmitButton type="submit">Submit</StyledSubmitButton>
       </StyledForm>
     </>
   );

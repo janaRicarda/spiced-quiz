@@ -14,4 +14,15 @@ export default async function handler(request, response) {
 
     response.status(200).json(spice);
   }
+
+  if (request.method === "PUT") {
+    const updatedSpice = request.body;
+    await Spice.findByIdAndUpdate(id, updatedSpice);
+    return response.status(200).json({ status: "Spice updated!" });
+  }
+
+  if (request.method === "DELETE") {
+    await Spice.findByIdAndDelete(id);
+    response.status(200).json({ status: "Spice deleted!" });
+  }
 }

@@ -8,7 +8,7 @@ export default function AddingPage({ handleSubmit }) {
       <Head>
         <title>adding page</title>
       </Head>
-      <CardForm handleSubmit={handleSubmit} />
+      <CardForm handleSubmit={handleSubmit} value="" />
       <Layout />
     </>
   );

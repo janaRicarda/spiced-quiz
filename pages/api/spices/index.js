@@ -9,7 +9,7 @@ export default async function handler(request, response) {
     return response.status(200).json(spices);
   }
 
-  /* if (request.method === "POST") {
+  if (request.method === "POST") {
     try {
       const spiceData = request.body;
       const spice = new Spice(spiceData);
@@ -20,9 +20,9 @@ export default async function handler(request, response) {
       return response.status(400).json({ error: error.message });
     }
   }
-} */
+}
 
-  if (request.method === "POST") {
+/*  if (request.method === "POST") {
     try {
       const spiceData = request.body;
       await Spice.create(spiceData);
@@ -34,3 +34,4 @@ export default async function handler(request, response) {
     }
   }
 }
+ */
