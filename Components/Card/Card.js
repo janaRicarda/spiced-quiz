@@ -22,7 +22,6 @@ export default function Card({
   isBookmarked,
   question,
   answer,
-  // dataInfo,
 }) {
   // const [isBookmarked, setIsBookmarked] = useState(false);
   const [clicked, setClicked] = useState(false);
@@ -46,19 +45,6 @@ export default function Card({
     });
   } */
 
-  /* function handleBookmark(id) {
-    setSpicesInfo(
-      updatedSpices.map((spice) =>
-        spice._id === id
-          ? { ...spice, isBookmarked: !spice.isBookmarked }
-          : spice
-      )
-    );
-  }
- */
-  /* function handleBookmark() {
-    setIsBookmarked(!isBookmarked);
-  } */
   function handleAnswer() {
     setClicked(!clicked);
   }
@@ -69,7 +55,6 @@ export default function Card({
       <StyledBookmarkButton
         type="button"
         onClick={() => handleBookmark(id)}
-        /* dataInfo={dataInfo} */
         $bookmark={isBookmarked}
       >
         🌶️

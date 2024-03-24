@@ -1,7 +1,7 @@
 import GlobalStyle from "@/styles";
 import { SWRConfig } from "swr";
 import useSWR from "swr";
-//import { useState } from "react";
+
 import { useRouter } from "next/router";
 import LoadingSpinner from "@/Components/Loading/index ";
 import useLocalStorageState from "use-local-storage-state";
@@ -9,13 +9,12 @@ import useLocalStorageState from "use-local-storage-state";
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function App({ Component, pageProps }) {
+  const { data, isLoading, mutate } = useSWR("/api/spices", fetcher);
   const router = useRouter();
-  //const [dataInfo, setDataInfo] = useState([]);
-  const [dataInfo, setDataInfo] = useLocalStorageState("dataInfo", {
+
+  const [spicesInfo, setSpicesInfo] = useLocalStorageState("spicesInfo", {
     defaultValue: [],
   });
-
-  const { data, isLoading, mutate } = useSWR("/api/spices", fetcher);
 
   if (isLoading) {
     return <LoadingSpinner />;
@@ -46,29 +45,20 @@ export default function App({ Component, pageProps }) {
     }
   }
 
+  let updatedSpices = spicesInfo.length ? spicesInfo : data;
+
   function handleBookmark(id) {
-    console.log("bookmark");
-    setDataInfo((dataInfo) => {
-      const info = dataInfo.find((info) => info.id === id);
-      if (info) {
-        return dataInfo.map((info) =>
-          info.id === id ? { ...info, isBookmarked: !info.isBookmarked } : info
-        );
-      }
-      return [...dataInfo, { id, isBookmarked: true }];
-    });
+    setSpicesInfo(
+      updatedSpices.map((spice) =>
+        spice.id === id
+          ? { ...spice, isBookmarked: !spice.isBookmarked }
+          : spice
+      )
+    );
+    return [...spicesInfo, { id, isBookmarked: true }];
   }
 
-  const bookmarkedSpices = data
-    ? data.map((spice) => {
-        const { isBookmarked } = dataInfo.find(
-          (info) => info.id === spice.id
-        ) ?? {
-          isBookmarked: false,
-        };
-      })
-    : null;
-
+  console.log(data);
   return (
     <SWRConfig
       value={{
@@ -83,11 +73,10 @@ export default function App({ Component, pageProps }) {
     >
       <GlobalStyle />
       <Component
-        data={data}
-        dataInfo={dataInfo}
+        data={updatedSpices}
         handleBookmark={handleBookmark}
+        spicesInfo={spicesInfo}
         isBookmarked
-        bookmarkedSpices={bookmarkedSpices}
         handleSubmit={handleSubmit}
         {...pageProps}
       />
