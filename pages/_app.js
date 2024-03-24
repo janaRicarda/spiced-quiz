@@ -1,29 +1,30 @@
 import GlobalStyle from "@/styles";
 import { SWRConfig } from "swr";
 import useSWR from "swr";
-import { useState } from "react";
+//import { useState } from "react";
 import { useRouter } from "next/router";
-//import useLocalStorageState from "use-local-storage-state";
+import LoadingSpinner from "@/Components/Loading/index ";
+import useLocalStorageState from "use-local-storage-state";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  const [dataInfo, setDataInfo] = useState([]);
-  /* const [dataInfo, setDataInfo] = useLocalStorageState("dataInfo", {
+  //const [dataInfo, setDataInfo] = useState([]);
+  const [dataInfo, setDataInfo] = useLocalStorageState("dataInfo", {
     defaultValue: [],
-  }); */
+  });
 
   const { data, isLoading, mutate } = useSWR("/api/spices", fetcher);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <LoadingSpinner />;
   }
 
-  // if (!data) {
-  //   console.log(data);
-  //   return;
-  // }
+  if (!data) {
+    console.log(data);
+    return;
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();

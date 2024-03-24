@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { StyledLink } from "@/Components/Link/Link.styled";
 import CardForm from "@/Components/CardForm/CardForm";
 import { useState } from "react";
+import LoadingSpinner from "@/Components/Loading/index ";
 
 const StyledArticle = styled.article`
   border-radius: 12px;
@@ -104,7 +105,7 @@ export default function DetailPage() {
   }
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <LoadingSpinner />;
   }
   if (!data) {
     return;
