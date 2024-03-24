@@ -3,7 +3,7 @@ import Head from "next/head";
 import CardList from "@/Components/CardList/CardList";
 import Layout from "@/Components/Layout/Layout";
 
-export default function QuizPage({ data, spiceInfo, handleBookmark }) {
+export default function QuizPage({ data, spicesInfo, handleBookmark }) {
   return (
     <>
       <Head>
@@ -11,7 +11,7 @@ export default function QuizPage({ data, spiceInfo, handleBookmark }) {
       </Head>
       <CardList
         spices={data}
-        spiceInfo={spiceInfo}
+        spicesInfo={spicesInfo}
         handleBookmark={handleBookmark}
       />
       <Layout />

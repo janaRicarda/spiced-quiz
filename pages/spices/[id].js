@@ -82,7 +82,6 @@ export default function DetailPage() {
     });
 
     if (response.ok) {
-      console.log("yes");
       mutate();
     }
     if (!response.ok) {

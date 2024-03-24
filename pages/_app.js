@@ -55,10 +55,9 @@ export default function App({ Component, pageProps }) {
           : spice
       )
     );
-    return [...spicesInfo, { id, isBookmarked: true }];
+    //return [...spicesInfo, { id, isBookmarked: true }];
   }
 
-  console.log(data);
   return (
     <SWRConfig
       value={{
@@ -73,7 +72,7 @@ export default function App({ Component, pageProps }) {
     >
       <GlobalStyle />
       <Component
-        data={updatedSpices}
+        data={data}
         handleBookmark={handleBookmark}
         spicesInfo={spicesInfo}
         isBookmarked

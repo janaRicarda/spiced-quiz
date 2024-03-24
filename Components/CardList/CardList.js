@@ -12,7 +12,6 @@ export default function CardList({ spices, handleBookmark }) {
             answer={spice.answer}
             isBookmarked={spice.isBookmarked}
             handleBookmark={handleBookmark}
-            // id={`/${spice._id}`}
             id={spice._id}
           />
         </li>

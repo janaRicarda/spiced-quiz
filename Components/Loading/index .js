@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const Spinner = styled.div`
   color: var(--color-font);
+  font-size: 2rem;
   position: fixed;
   z-index: 9;
   height: 2rem;
