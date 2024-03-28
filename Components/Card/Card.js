@@ -17,7 +17,7 @@ import { StyledLink } from "../Link/Link.styled";
 
 export default function Card({
   id,
-  handleBookmark,
+  toggleBookmark,
   isBookmarked,
   question,
   answer,
@@ -33,8 +33,8 @@ export default function Card({
       <p>{question}</p>
       <StyledBookmarkButton
         type="button"
-        onClick={() => handleBookmark(id)}
-        $bookmark={isBookmarked}
+        onClick={() => toggleBookmark(id)}
+        $isBookmarked={isBookmarked}
       >
         🌶️
       </StyledBookmarkButton>

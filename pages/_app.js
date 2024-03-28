@@ -1,16 +1,32 @@
 import GlobalStyle from "@/styles";
 import { SWRConfig } from "swr";
 import useSWR from "swr";
-
+import { useState } from "react";
 import { useRouter } from "next/router";
 import LoadingSpinner from "@/Components/Loading/index ";
 import useLocalStorageState from "use-local-storage-state";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
+/* async function fetcher(url) {
+  const response = await fetch(url);
+
+  if (!response) {
+    const error = new Error(`An error occured...`);
+    error.info = await response.json();
+    error.status = response.status;
+    throw error;
+  }
+
+  return response.json();
+} */
+
 export default function App({ Component, pageProps }) {
   const { data, isLoading, mutate } = useSWR("/api/spices", fetcher);
   const router = useRouter();
+
+  // const [spicesInfo, setSpicesInfo] = useState([]);
+  // const [isBookmarked, setIsBookmarked] = useState(false);
 
   const [spicesInfo, setSpicesInfo] = useLocalStorageState("spicesInfo", {
     defaultValue: [],
@@ -47,7 +63,7 @@ export default function App({ Component, pageProps }) {
 
   let updatedSpices = spicesInfo.length ? spicesInfo : data;
 
-  function handleBookmark(id) {
+  function toggleBookmark(id) {
     setSpicesInfo(
       updatedSpices.map((spice) =>
         spice.id === id
@@ -55,8 +71,30 @@ export default function App({ Component, pageProps }) {
           : spice
       )
     );
-    //return [...spicesInfo, { id, isBookmarked: true }];
   }
+
+  //ChatGPT Vorschlag:
+  /*function toggleBookmark(id) {
+    setIsBookmarked(!isBookmarked);
+    if (isBookmarked) {
+      setSpicesInfo({ isBookmarked: true });
+    } else {
+      setSpicesInfo([]);
+    } 
+  }*/
+
+  //Lösung aus Handout
+  /* function toggleBookmark(id) {
+    setSpicesInfo((spicesInfo) => {
+      const info = spicesInfo.find((info) => info.id === id);
+      if (info) {
+        return spicesInfo.map((info) =>
+          info.id === id ? { ...info, isBookmarked: !info.isBookmarked } : info
+        );
+      }
+      return [...spicesInfo, { id, isBookmarked: true }];
+    });
+  } */
 
   return (
     <SWRConfig
@@ -72,10 +110,10 @@ export default function App({ Component, pageProps }) {
     >
       <GlobalStyle />
       <Component
-        data={data}
-        handleBookmark={handleBookmark}
+        //data={data}
+        data={updatedSpices}
+        toggleBookmark={toggleBookmark}
         spicesInfo={spicesInfo}
-        isBookmarked
         handleSubmit={handleSubmit}
         {...pageProps}
       />

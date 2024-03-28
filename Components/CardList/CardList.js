@@ -2,7 +2,7 @@ import Card from "../Card/Card";
 
 import StyledList from "./StyledList";
 
-export default function CardList({ spices, handleBookmark }) {
+export default function CardList({ spices, spicesInfo, toggleBookmark }) {
   return (
     <StyledList>
       {spices.map((spice) => (
@@ -11,7 +11,7 @@ export default function CardList({ spices, handleBookmark }) {
             question={spice.question}
             answer={spice.answer}
             isBookmarked={spice.isBookmarked}
-            handleBookmark={handleBookmark}
+            toggleBookmark={toggleBookmark}
             id={spice._id}
           />
         </li>
@@ -20,10 +20,10 @@ export default function CardList({ spices, handleBookmark }) {
   );
 }
 
-/* return (
+/*  return (
     <StyledList>
       {spices.map((spice) => {
-        const { isBookmarked } = dataInfo.find(
+        const { isBookmarked } = spicesInfo.find(
           (info) => info.id === spice._id
         ) ?? {
           isBookmarked: false,
@@ -33,13 +33,14 @@ export default function CardList({ spices, handleBookmark }) {
             <Card
               question={spice.question}
               answer={spice.answer}
-              id={`/${spice._id}`}
-              isBookmarked={isBookmarked}
-              onHandleBookmark={onHandleBookmark}
+              id={spice._id}
+              isBookmarked={spice.isBookmarked}
+              handleBookmark={handleBookmark}
             ></Card>
           </li>
         );
       })}
     </StyledList>
   );
-} */
+}
+ */

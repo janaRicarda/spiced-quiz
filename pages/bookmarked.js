@@ -1,29 +1,16 @@
 import CardList from "@/Components/CardList/CardList";
 import Head from "next/head";
-
 import Layout from "@/Components/Layout/Layout";
 
-export default function Bookmarkpage({ data, spicesInfo, handleBookmark }) {
-  /* const { data, isLoading } = useSWR("/api/spices");
+export default function Bookmarkpage({
+  data,
 
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (!data) {
-    return;
-  } */
-  /* const bookmarkedSpices = data
-    ? data.filter((spice) => spice.isBookmarked === true)
-    : null; */
-
-  /* const bookmarkedSpices = data
-    ? data.filter((spice) => spice.isBookmarked)
-    : null; */
-
+  spicesInfo,
+  toggleBookmark,
+}) {
   const bookmarkedSpices = data.filter((spice) => spice.isBookmarked);
 
-  /* const bookmarkedSpices = data
+  /*  const bookmarkedSpices = data
     ? data.map((spice) => {
         const { isBookmarked } = spicesInfo.find(
           (info) => info.id === spice.id
@@ -41,7 +28,7 @@ export default function Bookmarkpage({ data, spicesInfo, handleBookmark }) {
       <CardList
         spices={bookmarkedSpices}
         spicesInfo={spicesInfo}
-        handleBookmark={handleBookmark}
+        toggleBookmark={toggleBookmark}
       />
       <Layout />
     </>
