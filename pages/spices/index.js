@@ -1,19 +1,14 @@
 import Head from "next/head";
-
-import CardList from "@/Components/CardList/CardList";
 import Layout from "@/Components/Layout/Layout";
+import CardList from "@/Components/CardList";
 
-export default function QuizPage({ data, spicesInfo, toggleBookmark }) {
+export default function QuizPage({ data, toggleBookmark }) {
   return (
     <>
       <Head>
         <title>Quiz</title>
       </Head>
-      <CardList
-        spices={data}
-        spicesInfo={spicesInfo}
-        toggleBookmark={toggleBookmark}
-      />
+      <CardList spices={data} toggleBookmark={toggleBookmark} />
       <Layout />
     </>
   );

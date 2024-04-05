@@ -25,9 +25,6 @@ export default function App({ Component, pageProps }) {
   const { data, isLoading, mutate } = useSWR("/api/spices", fetcher);
   const router = useRouter();
 
-  // const [spicesInfo, setSpicesInfo] = useState([]);
-  // const [isBookmarked, setIsBookmarked] = useState(false);
-
   const [spicesInfo, setSpicesInfo] = useLocalStorageState("spicesInfo", {
     defaultValue: [],
   });
@@ -62,39 +59,18 @@ export default function App({ Component, pageProps }) {
   }
 
   let updatedSpices = spicesInfo.length ? spicesInfo : data;
+  console.log(updatedSpices);
+  console.log(data);
 
   function toggleBookmark(id) {
     setSpicesInfo(
       updatedSpices.map((spice) =>
-        spice.id === id
+        spice._id === id
           ? { ...spice, isBookmarked: !spice.isBookmarked }
           : spice
       )
     );
   }
-
-  //ChatGPT Vorschlag:
-  /*function toggleBookmark(id) {
-    setIsBookmarked(!isBookmarked);
-    if (isBookmarked) {
-      setSpicesInfo({ isBookmarked: true });
-    } else {
-      setSpicesInfo([]);
-    } 
-  }*/
-
-  //Lösung aus Handout
-  /* function toggleBookmark(id) {
-    setSpicesInfo((spicesInfo) => {
-      const info = spicesInfo.find((info) => info.id === id);
-      if (info) {
-        return spicesInfo.map((info) =>
-          info.id === id ? { ...info, isBookmarked: !info.isBookmarked } : info
-        );
-      }
-      return [...spicesInfo, { id, isBookmarked: true }];
-    });
-  } */
 
   return (
     <SWRConfig
@@ -113,7 +89,6 @@ export default function App({ Component, pageProps }) {
         //data={data}
         data={updatedSpices}
         toggleBookmark={toggleBookmark}
-        spicesInfo={spicesInfo}
         handleSubmit={handleSubmit}
         {...pageProps}
       />
