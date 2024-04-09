@@ -15,18 +15,11 @@ export const StyledCard = styled.article`
 `;
 
 export const StyledBookmarkButton = styled.button`
-  border-style: none;
   background-color: transparent;
-
-  font-size: 2rem;
-  border: 1px solid var(--color-font);
-  border-radius: 50%;
-  background-color: ${({ $isBookmarked }) =>
-    $isBookmarked ? "black" : "white"};
-
+  border-style: none;
   position: absolute;
-  top: -15px;
-  right: -10px;
+  top: -70px;
+  right: -80px;
 `;
 
 export const StyledAnswerButton = styled.button`

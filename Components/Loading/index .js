@@ -1,20 +1,28 @@
 import styled from "styled-components";
+import Chilli from "@/icons/chilli.svg";
 
-const Spinner = styled.div`
-  color: var(--color-font);
-  font-size: 2rem;
-  position: fixed;
-  z-index: 9;
-  height: 2rem;
-  width: 2rem;
-  overflow: visible;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+const StyledSection = styled.section`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const RedChilli = styled(Chilli)`
+  width: 600px;
+  height: 600px;
+  fill: red;
+
+  margin-left: 70px;
 `;
 
 export default function LoadingSpinner() {
-  return <Spinner>Loading...</Spinner>;
+  return (
+    <StyledSection>
+      <RedChilli />
+      Loading...
+    </StyledSection>
+  );
 }

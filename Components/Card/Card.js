@@ -5,15 +5,18 @@ import {
 } from "./Card.styled";
 import { useState } from "react";
 import { StyledLink } from "../Link/Link.styled";
-//import Chilli from "../../icons/chilli.svg";
-//import styled from "styled-components";
+import Chilli from "../../icons/chilli.svg";
+import styled from "styled-components";
 
-/* const StyledChilli = styled(Chilli)`
-  width: 40px;
-  height: 40px;
-  fill: black;
+const StyledChilli = styled(Chilli)`
+  width: 150px;
+  height: 150px;
+  fill: ${({ $isBookmarked }) => ($isBookmarked ? "red" : "pink")};
   color: black;
-`; */
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 export default function Card({
   id,
@@ -31,12 +34,8 @@ export default function Card({
   return (
     <StyledCard>
       <p>{question}</p>
-      <StyledBookmarkButton
-        type="button"
-        onClick={() => toggleBookmark(id)}
-        $isBookmarked={isBookmarked}
-      >
-        🌶️
+      <StyledBookmarkButton type="button" onClick={() => toggleBookmark(id)}>
+        <StyledChilli $isBookmarked={isBookmarked} />
       </StyledBookmarkButton>
       <StyledAnswerButton
         type="button"
