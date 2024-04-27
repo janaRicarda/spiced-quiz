@@ -13,9 +13,11 @@ const StyledHeader = styled.header`
 `;
 
 const StyledH1 = styled.h1`
-  font-family: var(--font-fat);
-  font-size: 4rem;
-  margin-bottom: 0.7rem;
+  //font-family: var(--font-fat);
+  font-size: 3rem;
+  font-weight: 900;
+  padding: 1rem;
+  margin-bottom: 0;
   margin-top: 0;
 
   color: var(--color-font);
@@ -25,7 +27,7 @@ export default function Layout() {
   return (
     <>
       <StyledHeader>
-        <StyledH1>Spiced Quiz</StyledH1>
+        <StyledH1>SPICED QUIZ</StyledH1>
       </StyledHeader>
       <Navigation />
     </>

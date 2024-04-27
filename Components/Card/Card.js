@@ -11,7 +11,7 @@ import styled from "styled-components";
 const StyledChilli = styled(Chilli)`
   width: 150px;
   height: 150px;
-  fill: ${({ $isBookmarked }) => ($isBookmarked ? "red" : "pink")};
+  fill: ${({ $isBookmarked }) => ($isBookmarked ? "black" : "transparent")};
   color: black;
   &:hover {
     cursor: pointer;
@@ -34,7 +34,11 @@ export default function Card({
   return (
     <StyledCard>
       <p>{question}</p>
-      <StyledBookmarkButton type="button" onClick={() => toggleBookmark(id)}>
+      <StyledBookmarkButton
+        type="button"
+        title={isBookmarked ? "unbookmark" : "bookmark"}
+        onClick={() => toggleBookmark(id)}
+      >
         <StyledChilli $isBookmarked={isBookmarked} />
       </StyledBookmarkButton>
       <StyledAnswerButton
@@ -44,7 +48,32 @@ export default function Card({
       >
         {clicked ? "Hide answer" : "Show answer"}
       </StyledAnswerButton>
-      {clicked && <StyledLink href={`/spices/${id}`}>{answer} 🔍</StyledLink>}
+      {clicked && (
+        <StyledLink title="click for more details" href={`/spices/${id}`}>
+          {answer} 🔍
+        </StyledLink>
+      )}
     </StyledCard>
   );
+}
+
+{
+  /* <StyledCard>
+      <p>{question}</p>
+      <StyledBookmarkButton
+        type="button"
+        title={isBookmarked ? "unbookmark" : "bookmark"}
+        onClick={() => toggleBookmark(id)}
+      >
+        <StyledChilli $isBookmarked={isBookmarked} />
+      </StyledBookmarkButton>
+      <StyledAnswerButton
+        type="button"
+        onClick={handleAnswer}
+        clicked={clicked}
+      >
+        {clicked ? "Hide answer" : "Show answer"}
+      </StyledAnswerButton>
+      {clicked && <p>{answer}</p>}
+    </StyledCard> */
 }

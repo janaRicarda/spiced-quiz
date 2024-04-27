@@ -26,7 +26,15 @@ const StyledInput = styled.input`
   border-style: none;
   border: 1px solid var(--color-font);
   color: var(--color-font);
-  height: ${({ $moreHeight }) => ($moreHeight ? "13rem" : null)};
+`;
+
+const StyledTextarea = styled.textarea`
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-top: 0;
+  border-style: none;
+  border: 1px solid var(--color-font);
+  color: var(--color-font);
 `;
 
 const StyledSubmitButton = styled.button`
@@ -61,14 +69,6 @@ export default function CardForm({ handleSubmit, value, isEditMode }) {
           name="answer"
           type="text"
           defaultValue={value.answer}
-        />
-
-        <StyledLabel htmlFor="description">Description:</StyledLabel>
-        <StyledInput
-          $moreHeight
-          id="description"
-          name="description"
-          type="text"
         />
 
         <StyledSubmitButton type="submit">Submit</StyledSubmitButton>

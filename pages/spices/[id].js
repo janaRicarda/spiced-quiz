@@ -34,11 +34,11 @@ const StyledButtonDiv = styled.div`
   gap: 0.2rem;
   position: absolute;
   top: 1%;
-  right: 1%;
+  right: 0.7%;
 `;
 const StyledButton = styled.button`
   border-style: none;
-  border-radius: 6px;
+  border-radius: 7px;
   border: 1px solid var(--color-font);
   color: var(--color-font);
   padding: 0.5rem;

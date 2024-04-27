@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Chilli from "@/icons/chilli.svg";
 
 const StyledSection = styled.section`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -14,11 +14,8 @@ const StyledSection = styled.section`
 `;
 
 const RedChilli = styled(Chilli)`
-  width: 600px;
-  height: 600px;
-  fill: red;
-
-  margin-left: 70px;
+  fill: none;
+  margin-left: 60px;
 `;
 
 export default function Bookmarkpage({ data, spicesInfo, toggleBookmark }) {

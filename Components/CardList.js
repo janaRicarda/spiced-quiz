@@ -6,6 +6,10 @@ const StyledList = styled.ul`
   margin-top: 120px;
   padding-left: 0;
   margin-bottom: 100px;
+
+  //justify-self: center;
+  margin-left: 3rem;
+  margin-right: 3rem;
 `;
 
 export default function CardList({ spices, toggleBookmark }) {

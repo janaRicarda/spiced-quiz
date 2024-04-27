@@ -19,13 +19,19 @@ export default createGlobalStyle`
 }
 body {
     margin: 0;
+    padding: 0;
   font-family: ${albertSans.style.fontFamily};
-  background-image: linear-gradient(lightsalmon, gold);
+  //background-image: linear-gradient(lightsalmon, gold);
   background-repeat: no-repeat;
-  height: 100%;
-  
-  
-  
-  
+  height: 100%;  
+  width: 100%;
+
+ 
+    background-color: hsla(298, 73%, 89%, 1);
+    background-image: radial-gradient(circle at 31% 28%, hsla(355, 97%, 82%, 1) 8%, transparent 58%), radial-gradient(circle at 82% 13%, hsla(316, 92%, 73%, 1) 10%, transparent 63%), radial-gradient(circle at 81% 24%, hsla(62, 61%, 52%, 1) 6%, transparent 59%), radial-gradient(circle at 24% 94%, hsla(266, 69%, 90%, 1) 8%, transparent 50%), radial-gradient(circle at 14% 68%, hsla(209, 87%, 73%, 1) 16%, transparent 87%);
+    background-blend-mode: normal, normal, normal, normal, normal;
+
 }
+
+
 `;

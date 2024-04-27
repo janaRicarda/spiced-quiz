@@ -12,7 +12,6 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledH1 = styled.h1`
-  font-family: var(--font-fat);
   font-size: 4rem;
   margin-bottom: 0.7rem;
   margin-top: 0;
