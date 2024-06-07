@@ -12,14 +12,14 @@ export default createGlobalStyle`
   box-sizing: border-box;
 }
 :root {
-  --color1: #C49EEB;
+  --color1: #C0BCEB;
   --color2: #E59023;
   --color-font: #412A8C;
   --font-fat: ${abrilFatface.style.fontFamily};
 }
 body {
     margin: 0;
-    padding: 0;
+    padding: 123px 0;
   font-family: ${albertSans.style.fontFamily};
   //background-image: linear-gradient(lightsalmon, gold);
   background-repeat: no-repeat;

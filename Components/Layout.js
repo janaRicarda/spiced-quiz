@@ -1,5 +1,6 @@
 import Navigation from "@/Components/Navigation";
 import styled from "styled-components";
+import Header from "./Header";
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -23,12 +24,12 @@ const StyledH1 = styled.h1`
   color: var(--color-font);
 `;
 
-export default function Layout() {
+export default function Layout({ children }) {
   return (
     <>
-      <StyledHeader>
-        <StyledH1>SPICED QUIZ</StyledH1>
-      </StyledHeader>
+      <Header />
+
+      {children}
       <Navigation />
     </>
   );

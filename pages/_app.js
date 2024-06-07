@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import LoadingSpinner from "@/Components/Loading/index ";
 import useLocalStorageState from "use-local-storage-state";
+import Layout from "@/Components/Layout";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -85,13 +86,14 @@ export default function App({ Component, pageProps }) {
       }}
     >
       <GlobalStyle />
-      <Component
-        //data={data}
-        data={updatedSpices}
-        toggleBookmark={toggleBookmark}
-        handleSubmit={handleSubmit}
-        {...pageProps}
-      />
+      <Layout>
+        <Component
+          data={updatedSpices}
+          toggleBookmark={toggleBookmark}
+          handleSubmit={handleSubmit}
+          {...pageProps}
+        />
+      </Layout>
     </SWRConfig>
   );
 }

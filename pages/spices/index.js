@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Layout from "@/Components/Layout/Layout";
+import Layout from "@/Components/Layout";
 import CardList from "@/Components/CardList";
 
 export default function QuizPage({ data, toggleBookmark }) {

@@ -1,18 +1,19 @@
 import styled from "styled-components";
 
 const StyledForm = styled.form`
+  width: 70vw;
+  height: 35vh;
   display: flex;
   flex-direction: column;
-
   gap: 1rem;
   background-color: white;
-  margin-top: ${({ $edit }) => ($edit ? "2rem" : "150px")};
-  margin-bottom: 60px;
-  margin-left: 2rem;
-  margin-right: 2rem;
+
   border-radius: 12px;
-  border: 1px solid var(--color-font);
+
   padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(15px);
 `;
 
 const StyledLabel = styled.label`
@@ -23,23 +24,12 @@ const StyledInput = styled.input`
   border-radius: 6px;
   padding: 0.5rem;
   margin-top: 0;
-  border-style: none;
-  border: 1px solid var(--color-font);
-  color: var(--color-font);
-`;
-
-const StyledTextarea = styled.textarea`
-  border-radius: 6px;
-  padding: 0.5rem;
-  margin-top: 0;
-  border-style: none;
   border: 1px solid var(--color-font);
   color: var(--color-font);
 `;
 
 const StyledSubmitButton = styled.button`
-  border-style: none;
-  background-color: white;
+  background-color: transparent;
   padding: 0.5rem;
   border: 1px solid var(--color-font);
   color: var(--color-font);

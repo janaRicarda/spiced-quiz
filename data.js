@@ -23,7 +23,7 @@ const spices = [
     id: 5,
 
     question:
-      "Geht es um die Frabe und ist Safran zu teuer... welche Alternative gibt es?",
+      "Geht es um die Farbe und ist Safran zu teuer... welche Alternative gibt es?",
     answer: "Curcuma",
   },
   {

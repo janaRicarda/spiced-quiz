@@ -1,21 +1,38 @@
 import CardList from "@/Components/CardList.js";
 import Head from "next/head";
-import Layout from "@/Components/Layout/Layout";
+import Layout from "@/Components/Layout";
 import styled from "styled-components";
 import Chilli from "@/icons/chilli.svg";
 
 const StyledSection = styled.section`
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 223px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
+const StyledDiv = styled.div`
+  width: 100%;
+  height: auto;
+`;
+
 const RedChilli = styled(Chilli)`
   fill: none;
-  margin-left: 60px;
+  padding: 0;
+  margin: 0;
+
+  //position: fixed;
+`;
+
+const StyledArticle = styled.article`
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  right: 10rem;
+  top: 8rem;
+  z-index: 1;
 `;
 
 export default function Bookmarkpage({ data, spicesInfo, toggleBookmark }) {
@@ -29,7 +46,12 @@ export default function Bookmarkpage({ data, spicesInfo, toggleBookmark }) {
       </Head>
       {bookmarkedSpices.length === 0 ? (
         <StyledSection>
-          <RedChilli />
+          <StyledDiv>
+            <RedChilli />
+            {/*  <StyledArticle>
+              <p>not filled yet...</p>
+            </StyledArticle> */}
+          </StyledDiv>
         </StyledSection>
       ) : (
         <CardList spices={bookmarkedSpices} toggleBookmark={toggleBookmark} />

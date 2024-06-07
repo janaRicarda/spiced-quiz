@@ -9,7 +9,7 @@ const StyledSection = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: var(--color-font);
 `;
 
 const StyledArticle = styled.article`
