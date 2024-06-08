@@ -9,8 +9,8 @@ import Chilli from "../../icons/chilli.svg";
 import styled from "styled-components";
 
 const StyledChilli = styled(Chilli)`
-  width: 150px;
-  height: 150px;
+  width: 3rem;
+  height: 3rem;
   fill: ${({ $isBookmarked }) => ($isBookmarked ? "black" : "transparent")};
   color: black;
   &:hover {

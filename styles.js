@@ -26,7 +26,7 @@ body {
     padding: 90px 0;
   font-family: ${albertSans.style.fontFamily};
   background-color: var(--main-bright);
-
+color: var(--font);
   //background-repeat: no-repeat;
   height: 100%;  
   width: 100%;

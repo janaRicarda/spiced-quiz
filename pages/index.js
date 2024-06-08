@@ -5,6 +5,10 @@ import Link from "next/link";
 
 const StyledSection = styled.section`
   height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +19,6 @@ const StyledSection = styled.section`
 const StyledArticle = styled.article`
   width: 320px;
   height: 320px;
-  border: 1px solid black;
   border-radius: 50%;
   background-image: linear-gradient(lightsalmon, gold);
   display: flex;

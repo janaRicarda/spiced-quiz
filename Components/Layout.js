@@ -1,21 +1,20 @@
 import Navigation from "@/Components/Navigation";
 import Header from "./Header";
-import styled from "styled-components";
-
-const StyledButton = styled.button`
-  position: absolute;
-  top: 0;
-  right: 0;
-`;
+import { useRouter } from "next/router";
+import Toggle from "./ToggleMode";
 
 export default function Layout({ children, theme, handleToggleTheme }) {
+  const router = useRouter();
+  const indexPage = router.pathname === "/" ? true : false;
+
   return (
     <>
-      <Header theme={theme} handleToggleTheme={handleToggleTheme} />
-
+      {indexPage ? null : <Header />}
       {children}
-      <Navigation />
-      <StyledButton onClick={handleToggleTheme}>☽</StyledButton>
+      {indexPage ? null : <Navigation />}
+      {indexPage ? null : (
+        <Toggle theme={theme} handleToggleTheme={handleToggleTheme} />
+      )}
     </>
   );
 }

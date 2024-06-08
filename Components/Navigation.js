@@ -31,20 +31,20 @@ const NavLink = styled(StyledLink)`
 `;
 
 const StyledHome = styled(Home)`
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   fill: var(--font);
 `;
 
 const StyledChilli = styled(Chilli)`
-  width: 4rem;
-  height: 4rem;
+  width: 2.5rem;
+  height: 2.5rem;
   fill: var(--font);
 `;
 
 const StyledPlus = styled(Plus)`
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   fill: var(--font);
 `;
 

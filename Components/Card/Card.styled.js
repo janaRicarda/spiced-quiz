@@ -22,8 +22,8 @@ export const StyledBookmarkButton = styled.button`
   background-color: transparent;
   border-style: none;
   position: absolute;
-  top: -70px;
-  right: -80px;
+  top: -1.3rem;
+  right: -1rem;
 `;
 
 export const StyledAnswerButton = styled.button`

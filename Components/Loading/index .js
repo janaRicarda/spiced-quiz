@@ -11,11 +11,9 @@ const StyledSection = styled.section`
 `;
 
 const RedChilli = styled(Chilli)`
-  width: 600px;
-  height: 600px;
-  fill: red;
-
-  margin-left: 70px;
+  width: 8rem;
+  height: 8rem;
+  fill: black;
 `;
 
 export default function LoadingSpinner() {
