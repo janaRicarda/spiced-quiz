@@ -13,32 +13,22 @@ const StyledSection = styled.section`
   align-items: center;
 `;
 
-const StyledDiv = styled.div`
-  width: 100%;
-  height: auto;
-`;
-
 const RedChilli = styled(Chilli)`
+  width: 100%;
+  height: 100%;
   fill: none;
-  padding: 0;
-  margin: 0;
-
-  //position: fixed;
 `;
 
 const StyledArticle = styled.article`
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  right: 10rem;
-  top: 8rem;
-  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default function Bookmarkpage({ data, spicesInfo, toggleBookmark }) {
   const bookmarkedSpices = data.filter((spice) => spice.isBookmarked);
 
-  console.log(bookmarkedSpices);
   return (
     <>
       <Head>
@@ -46,12 +36,11 @@ export default function Bookmarkpage({ data, spicesInfo, toggleBookmark }) {
       </Head>
       {bookmarkedSpices.length === 0 ? (
         <StyledSection>
-          <StyledDiv>
+          <StyledArticle>
             <RedChilli />
-            {/*  <StyledArticle>
-              <p>not filled yet...</p>
-            </StyledArticle> */}
-          </StyledDiv>
+
+            <p>nothing bookmarked...</p>
+          </StyledArticle>
         </StyledSection>
       ) : (
         <CardList spices={bookmarkedSpices} toggleBookmark={toggleBookmark} />

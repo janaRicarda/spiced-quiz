@@ -17,34 +17,34 @@ const StyledForm = styled.form`
 `;
 
 const StyledLabel = styled.label`
-  color: var(--color-font);
+  color: var(--font);
 `;
 
 const StyledInput = styled.input`
   border-radius: 6px;
   padding: 0.5rem;
   margin-top: 0;
-  border: 1px solid var(--color-font);
-  color: var(--color-font);
+  border: 1px solid var(--font);
+  color: var(--font);
 `;
 
 const StyledSubmitButton = styled.button`
   background-color: transparent;
   padding: 0.5rem;
-  border: 1px solid var(--color-font);
-  color: var(--color-font);
+  border: 1px solid var(--font);
+  color: var(--font);
   border-radius: 6px;
   width: 70px;
   align-self: center;
   &:hover {
-    background-color: var(--color1);
+    background-color: var(--background);
   }
 `;
 
-export default function CardForm({ handleSubmit, value, isEditMode }) {
+export default function CardForm({ onSubmit, value, isEditMode }) {
   return (
     <>
-      <StyledForm $edit={isEditMode} onSubmit={handleSubmit}>
+      <StyledForm $edit={isEditMode} onSubmit={onSubmit}>
         <StyledLabel htmlFor="question">Question:</StyledLabel>
         <StyledInput
           id="question"

@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-  color: var(--color-font);
+  color: var(--font);
 
   flex: 1;
   padding: 0.5rem;
   &:hover {
-    color: lightsalmon;
+    color: var(--accent);
   }
 `;

@@ -8,7 +8,7 @@ export const StyledCard = styled.article`
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
 
   backdrop-filter: blur(15px);
-  color: var(--color-font);
+  color: var(--font);
   font-weight: bold;
   padding: 1.5rem;
   margin: 2rem;
@@ -30,10 +30,10 @@ export const StyledAnswerButton = styled.button`
   border-style: none;
   padding: 1rem;
   border-radius: 6px;
-  border: 1px solid var(--color-font);
+  border: 1px solid var(--font);
   background-color: transparent;
-  color: var(--color-font);
+  color: var(--font);
   &:hover {
-    background-color: var(--color1);
+    background-color: var(--background);
   }
 `;

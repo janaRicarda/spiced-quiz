@@ -1,11 +1,12 @@
 import GlobalStyle from "@/styles";
+import { ThemeProvider } from "styled-components";
 import { SWRConfig } from "swr";
 import useSWR from "swr";
 import { useState } from "react";
-import { useRouter } from "next/router";
 import LoadingSpinner from "@/Components/Loading/index ";
 import useLocalStorageState from "use-local-storage-state";
 import Layout from "@/Components/Layout";
+import { lightTheme, darkTheme } from "@/Components/Theme";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -23,8 +24,8 @@ const fetcher = (url) => fetch(url).then((response) => response.json());
 } */
 
 export default function App({ Component, pageProps }) {
+  const [theme, setTheme] = useState(lightTheme);
   const { data, isLoading, mutate } = useSWR("/api/spices", fetcher);
-  const router = useRouter();
 
   const [spicesInfo, setSpicesInfo] = useLocalStorageState("spicesInfo", {
     defaultValue: [],
@@ -39,29 +40,11 @@ export default function App({ Component, pageProps }) {
     return;
   }
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-    const spiceData = Object.fromEntries(formData);
-
-    const response = await fetch("/api/spices", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(spiceData),
-    });
-
-    if (response.ok) {
-      mutate();
-      router.push("/spices");
-    }
+  function handleToggleTheme() {
+    theme === lightTheme ? setTheme(darkTheme) : setTheme(lightTheme);
   }
 
   let updatedSpices = spicesInfo.length ? spicesInfo : data;
-  console.log(updatedSpices);
-  console.log(data);
 
   function toggleBookmark(id) {
     setSpicesInfo(
@@ -74,26 +57,27 @@ export default function App({ Component, pageProps }) {
   }
 
   return (
-    <SWRConfig
-      value={{
-        fetcher: async (...args) => {
-          const response = await fetch(...args);
-          if (!response.ok) {
-            throw new Error(`Request with ${JSON.stringify(args)} failed.`);
-          }
-          return await response.json();
-        },
-      }}
-    >
-      <GlobalStyle />
-      <Layout>
-        <Component
-          data={updatedSpices}
-          toggleBookmark={toggleBookmark}
-          handleSubmit={handleSubmit}
-          {...pageProps}
-        />
-      </Layout>
-    </SWRConfig>
+    <ThemeProvider theme={theme}>
+      <SWRConfig
+        value={{
+          fetcher: async (...args) => {
+            const response = await fetch(...args);
+            if (!response.ok) {
+              throw new Error(`Request with ${JSON.stringify(args)} failed.`);
+            }
+            return await response.json();
+          },
+        }}
+      >
+        <GlobalStyle />
+        <Layout theme={theme} handleToggleTheme={handleToggleTheme}>
+          <Component
+            data={updatedSpices}
+            toggleBookmark={toggleBookmark}
+            {...pageProps}
+          />
+        </Layout>
+      </SWRConfig>
+    </ThemeProvider>
   );
 }

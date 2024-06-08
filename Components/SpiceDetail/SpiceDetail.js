@@ -3,6 +3,7 @@ import useSWR from "swr";
 import styled from "styled-components";
 import { StyledLink } from "../Link/Link.styled";
 import Spice from "@/db/models/Spice";
+import CardForm from "../CardForm/CardForm";
 
 const StyledArticle = styled.article`
   border-radius: 12px;
@@ -49,6 +50,8 @@ const StyledDiv = styled.div`
   position: absolute;
   bottom: 0;
 `;
+
+const StyledP = styled.p``;
 
 export default function SpiceDetails({ data }) {
   /* const router = useRouter();

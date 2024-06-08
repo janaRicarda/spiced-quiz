@@ -1,36 +1,21 @@
 import Navigation from "@/Components/Navigation";
-import styled from "styled-components";
 import Header from "./Header";
+import styled from "styled-components";
 
-const StyledHeader = styled.header`
-  position: fixed;
+const StyledButton = styled.button`
+  position: absolute;
   top: 0;
-  z-index: 1;
-  background-color: var(--color1);
-  width: 100%;
-  text-align: center;
-  padding: 0;
-  border-bottom: 1px solid var(--color-font);
+  right: 0;
 `;
 
-const StyledH1 = styled.h1`
-  //font-family: var(--font-fat);
-  font-size: 3rem;
-  font-weight: 900;
-  padding: 1rem;
-  margin-bottom: 0;
-  margin-top: 0;
-
-  color: var(--color-font);
-`;
-
-export default function Layout({ children }) {
+export default function Layout({ children, theme, handleToggleTheme }) {
   return (
     <>
-      <Header />
+      <Header theme={theme} handleToggleTheme={handleToggleTheme} />
 
       {children}
       <Navigation />
+      <StyledButton onClick={handleToggleTheme}>☽</StyledButton>
     </>
   );
 }

@@ -91,7 +91,7 @@ export default function DetailPage() {
     });
 
     if (response.ok) {
-      mutate();
+      // mutate();
       router.push("/spices");
     }
     if (!response.ok) {
