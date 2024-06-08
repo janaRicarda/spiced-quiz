@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Sun from "../icons/sun.svg";
 import Moon from "../icons/moon.svg";
-import { lightTheme } from "./Theme";
+import { lightTheme, darkTheme } from "./Theme";
 
 const StyledButton = styled.button`
   border-style: none;
@@ -27,7 +27,9 @@ const StyledMoon = styled(Moon)`
 export default function Toggle({ theme, handleToggleTheme }) {
   return (
     <StyledButton onClick={handleToggleTheme}>
-      {theme === lightTheme ? <StyledMoon /> : <StyledSun />}
+      {/* {theme === lightTheme ? <StyledMoon /> : <StyledSun />} */}
+      {(theme === lightTheme && <StyledMoon />) ||
+        (theme === darkTheme && <StyledSun />)}
     </StyledButton>
   );
 }

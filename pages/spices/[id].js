@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import styled from "styled-components";
-
 import CardForm from "@/Components/CardForm/CardForm";
 import { useState } from "react";
 import LoadingSpinner from "@/Components/Loading/index ";
@@ -17,9 +16,9 @@ const StyledSection = styled.section`
 
 const StyledArticle = styled.article`
   border-radius: 12px;
-  border: 1px solid var(--color-font);
+  border: 1px solid var(--font);
   background-color: white;
-  color: var(--color-font);
+  color: var(--font);
   font-weight: bold;
   padding: 2rem;
   margin: 0 4rem 0 4rem;
@@ -47,14 +46,14 @@ const StyledButtonDiv = styled.div`
 const StyledButton = styled.button`
   border-style: none;
   border-radius: 7px;
-  border: 1px solid var(--color-font);
-  color: var(--color-font);
+  border: 1px solid var(--font);
+  color: var(--font);
   padding: 0.5rem;
   font-size: 1rem;
   background-color: white;
 
   &:hover {
-    background-color: var(--color1);
+    background-color: var(--accent);
   }
 `;
 
@@ -78,10 +77,7 @@ export default function DetailPage() {
     });
 
     if (response.ok) {
-      mutate();
-    }
-    if (!response.ok) {
-      console.log(response.status);
+      router.push("/spices");
     }
   }
 
@@ -91,7 +87,6 @@ export default function DetailPage() {
     });
 
     if (response.ok) {
-      // mutate();
       router.push("/spices");
     }
     if (!response.ok) {
@@ -99,38 +94,29 @@ export default function DetailPage() {
     }
   }
 
-  if (isLoading) {
-    return <LoadingSpinner />;
-  }
-  if (!data) {
-    return;
-  }
-
   return (
-    <>
-      <StyledSection>
-        <StyledArticle>
-          <StyledH1>{data.answer}</StyledH1>
-          <StyledP> hier könnte ein Text über {data.answer} stehen...</StyledP>
-          <StyledButtonDiv>
-            <StyledButton
-              type="button"
-              onClick={() => {
-                setIsEditMode(!isEditMode);
-              }}
-            >
-              Edit
-            </StyledButton>
-            <StyledButton type="button" onClick={() => handleDelete(id)}>
-              Delete
-            </StyledButton>
-          </StyledButtonDiv>
-        </StyledArticle>
+    <StyledSection>
+      <StyledArticle>
+        <StyledH1>{data.answer}</StyledH1>
+        <StyledP> hier könnte ein Text über {data.answer} stehen...</StyledP>
+        <StyledButtonDiv>
+          <StyledButton
+            type="button"
+            onClick={() => {
+              setIsEditMode(!isEditMode);
+            }}
+          >
+            Edit
+          </StyledButton>
+          <StyledButton type="button" onClick={() => handleDelete(id)}>
+            Delete
+          </StyledButton>
+        </StyledButtonDiv>
+      </StyledArticle>
 
-        {isEditMode && (
-          <CardForm onSubmit={handleEdit} value={data} isEditMode={true} />
-        )}
-      </StyledSection>
-    </>
+      {isEditMode && (
+        <CardForm onSubmit={handleEdit} value={data} isEditMode={true} />
+      )}
+    </StyledSection>
   );
 }

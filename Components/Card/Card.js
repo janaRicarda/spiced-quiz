@@ -11,8 +11,8 @@ import styled from "styled-components";
 const StyledChilli = styled(Chilli)`
   width: 3rem;
   height: 3rem;
-  fill: ${({ $isBookmarked }) => ($isBookmarked ? "black" : "transparent")};
-  color: black;
+  fill: ${({ $isBookmarked }) =>
+    $isBookmarked ? "var(--font)" : "transparent"};
   &:hover {
     cursor: pointer;
   }

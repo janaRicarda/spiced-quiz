@@ -7,20 +7,9 @@ export default async function handler(request, response) {
   if (request.method === "GET") {
     const spices = await Spice.find();
     return response.status(200).json(spices);
+  } else {
+    response.status(405).json({ message: "Method not allowd" });
   }
-
-  /* if (request.method === "POST") {
-    try {
-      const spiceData = request.body;
-      const spice = new Spice(spiceData);
-      await spice.save();
-      return response.status(201).json({ status: "Spice created." });
-    } catch (error) {
-      console.error(error);
-      return response.status(400).json({ error: error.message });
-    }
-  }
-} */
 
   if (request.method === "POST") {
     try {

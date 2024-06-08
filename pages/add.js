@@ -9,7 +9,7 @@ const fetcher = (url) => fetch(url).then((response) => response.json());
 const StyledSection = styled.section`
   width: 100%;
   height: calc(100vh - 223px);
-  //margin-top: 123px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,7 +35,6 @@ export default function AddingPage() {
     });
 
     if (response.ok) {
-      mutate();
       router.push("/spices");
     }
   }

@@ -25,7 +25,9 @@ const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function App({ Component, pageProps }) {
   const [theme, setTheme] = useState(lightTheme);
-  const { data, isLoading, mutate } = useSWR("/api/spices", fetcher);
+  const { data, isLoading, mutate } = useSWR("/api/spices", {
+    fallbackData: [],
+  });
 
   const [spicesInfo, setSpicesInfo] = useLocalStorageState("spicesInfo", {
     defaultValue: [],
