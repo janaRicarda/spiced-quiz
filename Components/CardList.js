@@ -7,19 +7,12 @@ const StyledList = styled.ul`
   width: 70vw;
 `;
 
-export default function CardList({
-  spices,
-  toggleBookmark,
-  handleAnswer,
-  isShown,
-}) {
+export default function CardList({ spices, toggleBookmark }) {
   return (
     <StyledList>
       {spices.map((spice) => (
         <li key={spice._id}>
           <Card
-            handleAnswer={handleAnswer}
-            isShown={isShown}
             question={spice.question}
             answer={spice.answer}
             isBookmarked={spice.isBookmarked}

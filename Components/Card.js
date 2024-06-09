@@ -1,6 +1,7 @@
 import { StyledLink } from "../Components/StyledLink";
 import Chilli from "../icons/chilli.svg";
 import styled from "styled-components";
+import { useState } from "react";
 
 const StyledCard = styled.article`
   border-radius: 12px;
@@ -53,9 +54,12 @@ export default function Card({
   isBookmarked,
   question,
   answer,
-  handleAnswer,
-  isShown,
 }) {
+  const [isShown, setIsShown] = useState(false);
+
+  function handleAnswer() {
+    setIsShown(!isShown);
+  }
   return (
     <StyledCard>
       <p>{question}</p>
@@ -66,7 +70,7 @@ export default function Card({
       >
         <StyledChilli $isBookmarked={isBookmarked} />
       </StyledBookmarkButton>
-      <StyledAnswerButton type="button" onClick={() => handleAnswer(id)}>
+      <StyledAnswerButton type="button" onClick={handleAnswer}>
         {isShown ? "Hide answer" : "Show answer"}
       </StyledAnswerButton>
       {isShown && (
