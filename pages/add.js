@@ -1,4 +1,4 @@
-import CardForm from "@/Components/CardForm/CardForm";
+import CardForm from "@/Components/CardForm";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import useSWR from "swr";
@@ -35,6 +35,7 @@ export default function AddingPage() {
     });
 
     if (response.ok) {
+      mutate();
       router.push("/spices");
     }
   }

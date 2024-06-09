@@ -1,4 +1,4 @@
-import { StyledLink } from "@/Components/Link/Link.styled";
+import { StyledLink } from "@/Components/StyledLink";
 import styled from "styled-components";
 import Home from "../icons/home.svg";
 import Chilli from "../icons/chilli.svg";

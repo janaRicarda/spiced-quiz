@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { SWRConfig } from "swr";
 import useSWR from "swr";
 import { useState } from "react";
-import LoadingSpinner from "@/Components/Loading/index ";
+import LoadingSpinner from "../Components/LoadingSpinner";
 import useLocalStorageState from "use-local-storage-state";
 import Layout from "@/Components/Layout";
 import { lightTheme, darkTheme } from "@/Components/Theme";
@@ -21,13 +21,11 @@ const fetcher = (url) => fetch(url).then((response) => response.json());
   }
 
   return response.json();
-} */
-
+}
+ */
 export default function App({ Component, pageProps }) {
   const [theme, setTheme] = useState(lightTheme);
-  const { data, isLoading, mutate } = useSWR("/api/spices", {
-    fallbackData: [],
-  });
+  const { data, isLoading, mutate } = useSWR("/api/spices", fetcher);
 
   const [spicesInfo, setSpicesInfo] = useLocalStorageState("spicesInfo", {
     defaultValue: [],
@@ -61,15 +59,16 @@ export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <SWRConfig
-        value={{
+        value={{ fetcher }}
+        /* value={{
           fetcher: async (...args) => {
             const response = await fetch(...args);
             if (!response.ok) {
               throw new Error(`Request with ${JSON.stringify(args)} failed.`);
             }
             return await response.json();
-          },
-        }}
+          }, 
+        }}*/
       >
         <GlobalStyle />
         <Layout theme={theme} handleToggleTheme={handleToggleTheme}>

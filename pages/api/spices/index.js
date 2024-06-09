@@ -15,7 +15,6 @@ export default async function handler(request, response) {
     try {
       const spiceData = request.body;
       await Spice.create(spiceData);
-
       response.status(201).json({ status: "Spice created" });
     } catch (error) {
       console.log(error);

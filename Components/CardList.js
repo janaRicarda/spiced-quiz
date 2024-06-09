@@ -1,4 +1,4 @@
-import Card from "@/Components/Card/Card";
+import Card from "@/Components/Card";
 import styled from "styled-components";
 
 const StyledList = styled.ul`
@@ -7,12 +7,19 @@ const StyledList = styled.ul`
   width: 70vw;
 `;
 
-export default function CardList({ spices, toggleBookmark }) {
+export default function CardList({
+  spices,
+  toggleBookmark,
+  handleAnswer,
+  isShown,
+}) {
   return (
     <StyledList>
       {spices.map((spice) => (
         <li key={spice._id}>
           <Card
+            handleAnswer={handleAnswer}
+            isShown={isShown}
             question={spice.question}
             answer={spice.answer}
             isBookmarked={spice.isBookmarked}

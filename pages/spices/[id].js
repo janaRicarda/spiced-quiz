@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import styled from "styled-components";
-import CardForm from "@/Components/CardForm/CardForm";
+import CardForm from "@/Components/CardForm";
 import { useState } from "react";
-import LoadingSpinner from "@/Components/Loading/index ";
+import LoadingSpinner from "@/Components/LoadingSpinner";
 
 const StyledSection = styled.section`
   width: 100%;
@@ -60,8 +60,12 @@ const StyledButton = styled.button`
 export default function DetailPage() {
   const [isEditMode, setIsEditMode] = useState(false);
   const router = useRouter();
+  const { isReady } = router;
   const { id } = router.query;
-  const { data, isLoading, mutate } = useSWR(`/api/spices/${id}`);
+
+  const { data, isLoading, mutate, error } = useSWR(`/api/spices/${id}`);
+
+  if (!isReady || isLoading || error) return <LoadingSpinner />;
 
   async function handleEdit(event) {
     event.preventDefault();
@@ -88,9 +92,6 @@ export default function DetailPage() {
 
     if (response.ok) {
       router.push("/spices");
-    }
-    if (!response.ok) {
-      console.log(response.status);
     }
   }
 
