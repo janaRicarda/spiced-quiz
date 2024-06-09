@@ -17,7 +17,7 @@ const StyledSection = styled.section`
 `;
 
 export default function AddingPage() {
-  const { data, isLoading, mutate } = useSWR("/api/spices", fetcher);
+  //const { data, isLoading, mutate } = useSWR("/api/spices", fetcher);
   const router = useRouter();
 
   async function handleSubmit(event) {
@@ -35,7 +35,6 @@ export default function AddingPage() {
     });
 
     if (response.ok) {
-      mutate();
       router.push("/spices");
     }
   }

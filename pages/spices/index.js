@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function QuizPage({ data, toggleBookmark }) {
   const [isShown, setIsShown] = useState(false);
 
-  function handleAnswer() {
+  function handleAnswer(id) {
     setIsShown(!isShown);
   }
   return (

@@ -66,7 +66,7 @@ export default function Card({
       >
         <StyledChilli $isBookmarked={isBookmarked} />
       </StyledBookmarkButton>
-      <StyledAnswerButton type="button" onClick={handleAnswer}>
+      <StyledAnswerButton type="button" onClick={() => handleAnswer(id)}>
         {isShown ? "Hide answer" : "Show answer"}
       </StyledAnswerButton>
       {isShown && (
@@ -76,25 +76,4 @@ export default function Card({
       )}
     </StyledCard>
   );
-}
-
-{
-  /* <StyledCard>
-      <p>{question}</p>
-      <StyledBookmarkButton
-        type="button"
-        title={isBookmarked ? "unbookmark" : "bookmark"}
-        onClick={() => toggleBookmark(id)}
-      >
-        <StyledChilli $isBookmarked={isBookmarked} />
-      </StyledBookmarkButton>
-      <StyledAnswerButton
-        type="button"
-        onClick={handleAnswer}
-        clicked={clicked}
-      >
-        {clicked ? "Hide answer" : "Show answer"}
-      </StyledAnswerButton>
-      {clicked && <p>{answer}</p>}
-    </StyledCard> */
 }
