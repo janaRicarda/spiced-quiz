@@ -1,8 +1,10 @@
 const lightTheme = {
-  mainBright: "#F5B772",
-  background: "#C0BCEB",
+  // mainBright: "#fef6ef",
+  mainBright: "#f3d2c1",
+  //background: "#C0BCEB",
+  background: "#8bd3dd",
   text: "#412A8C",
-  accent: "#E59023",
+  accent: "#f582ae",
 };
 
 const darkTheme = {
