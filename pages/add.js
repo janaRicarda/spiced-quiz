@@ -4,8 +4,6 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import styled from "styled-components";
 
-const fetcher = (url) => fetch(url).then((response) => response.json());
-
 const StyledSection = styled.section`
   width: 100%;
   height: calc(100vh - 223px);
@@ -17,7 +15,7 @@ const StyledSection = styled.section`
 `;
 
 export default function AddingPage() {
-  //const { data, isLoading, mutate } = useSWR("/api/spices", fetcher);
+  const { mutate } = useSWR("/api/spices");
   const router = useRouter();
 
   async function handleSubmit(event) {
@@ -35,6 +33,7 @@ export default function AddingPage() {
     });
 
     if (response.ok) {
+      mutate();
       router.push("/spices");
     }
   }

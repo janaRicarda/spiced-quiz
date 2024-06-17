@@ -81,6 +81,7 @@ export default function DetailPage() {
     });
 
     if (response.ok) {
+      mutate();
       router.push("/spices");
     }
   }
@@ -89,9 +90,9 @@ export default function DetailPage() {
     const response = await fetch(`/api/spices/${id}`, {
       method: "DELETE",
     });
-
     if (response.ok) {
       router.push("/spices");
+      mutate();
     }
   }
 

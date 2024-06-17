@@ -17,6 +17,7 @@ export default createGlobalStyle`
   --color-font: #412A8C;
   --main-bright: ${({ theme }) => theme.mainBright};
   --background: ${({ theme }) => theme.background};
+  --section-background:  ${({ theme }) => theme.sectionBackground};
   --font: ${({ theme }) => theme.text};
   --accent: ${({ theme }) => theme.accent};
   --font-fat: ${abrilFatface.style.fontFamily};

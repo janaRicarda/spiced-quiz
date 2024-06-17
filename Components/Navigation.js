@@ -11,19 +11,19 @@ const StyledFooter = styled.footer`
   z-index: 1;
   background: var(--background);
   width: 100%;
-  text-align: center;
+  height: 80px;
   display: flex;
+  justify-content: center;
   align-items: center;
 `;
 
 const NavLink = styled(StyledLink)`
   margin: 0;
-  padding: 0;
+  padding-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1px;
   &:hover {
     background-color: var(--accent);
     color: var(--font);
@@ -50,6 +50,7 @@ const StyledPlus = styled(Plus)`
 
 const StyledP = styled.p`
   font-size: 0.8rem;
+  height: 0.8rem;
   color: var(--font);
 `;
 
