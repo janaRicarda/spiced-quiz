@@ -6,7 +6,6 @@ import { useState } from "react";
 import LoadingSpinner from "@/Components/LoadingSpinner";
 
 const StyledSection = styled.section`
-  width: 100%;
   height: calc(100vh - 223px);
   display: flex;
   flex-direction: column;
@@ -17,12 +16,11 @@ const StyledSection = styled.section`
 const StyledArticle = styled.article`
   border-radius: 12px;
   border: 1px solid var(--font);
-  background-color: white;
+  background-color: var(--section-background);
   color: var(--font);
   font-weight: bold;
   padding: 2rem;
   margin: 0 4rem 0 4rem;
-
   width: 70vw;
   position: relative;
 `;
@@ -50,7 +48,7 @@ const StyledButton = styled.button`
   color: var(--font);
   padding: 0.5rem;
   font-size: 1rem;
-  background-color: white;
+  background-color: var(--background);
 
   &:hover {
     background-color: var(--accent);
@@ -115,7 +113,6 @@ export default function DetailPage() {
           </StyledButton>
         </StyledButtonDiv>
       </StyledArticle>
-
       {isEditMode && (
         <CardForm onSubmit={handleEdit} value={data} isEditMode={true} />
       )}

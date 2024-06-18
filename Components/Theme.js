@@ -1,18 +1,17 @@
 const lightTheme = {
   mainBright: "#f3d2c1",
-  //background: "#C0BCEB",
   background: "#8bd3dd",
   sectionBackground: "#fef6ef",
   text: "#412A8C",
-  accent: "#f582ae",
+  accent: "#C0BCEB",
 };
 
 const darkTheme = {
   mainBright: "#372E4A",
-  background: "#140D3B",
+  background: "#31254B",
   sectionBackground: "#373855",
   text: "#78DDDD",
-  accent: "#D0B8ED",
+  accent: "#6533B5",
 };
 
 export { lightTheme, darkTheme };

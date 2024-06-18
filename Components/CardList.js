@@ -4,7 +4,7 @@ import styled from "styled-components";
 const StyledList = styled.ul`
   list-style: none;
   padding-left: 0;
-  width: 70vw;
+  width: 80vw;
 `;
 
 export default function CardList({ spices, toggleBookmark }) {

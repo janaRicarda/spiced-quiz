@@ -11,15 +11,14 @@ const StyledFooter = styled.footer`
   z-index: 1;
   background: var(--background);
   width: 100%;
-  height: 80px;
+  height: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const NavLink = styled(StyledLink)`
-  margin: 0;
-  padding-top: 1rem;
+  height: 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

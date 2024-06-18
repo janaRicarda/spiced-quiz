@@ -13,14 +13,14 @@ const StyledSection = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-font);
+  background-color: var(--font);
 `;
 
 const StyledArticle = styled.article`
   width: 320px;
   height: 320px;
   border-radius: 50%;
-  background-image: linear-gradient(lightsalmon, gold);
+  background-image: linear-gradient(var(--background), var(--main-bright));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,7 +31,7 @@ const StyledArticle = styled.article`
 const StyledH1 = styled.h1`
   position: absolute;
   top: 17%;
-  color: var(--color-font);
+  color: var(--font);
   font-size: 2.5rem;
   font-family: var(--font-fat);
   line-height: 2.5rem;
@@ -46,8 +46,8 @@ const StyledStartLink = styled(Link)`
   padding: 0.5rem;
   border-radius: 6px;
   &:hover {
-    background-color: var(--color-font);
-    color: gold;
+    background-color: var(--font);
+    color: var(--background);
   }
 `;
 

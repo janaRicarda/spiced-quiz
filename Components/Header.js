@@ -25,9 +25,7 @@ const StyledSpan = styled.span`
 export default function Header() {
   return (
     <StyledHeader>
-      <StyledTitle>
-        Spiced Flowers<StyledSpan>Quiz App</StyledSpan>{" "}
-      </StyledTitle>
+      <StyledTitle>Spiced Quiz</StyledTitle>
     </StyledHeader>
   );
 }

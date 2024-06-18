@@ -14,8 +14,8 @@ const StyledSection = styled.section`
 `;
 
 const RedChilli = styled(Chilli)`
-  width: 5rem;
-  height: 5rem;
+  width: 8rem;
+  height: 8rem;
   fill: none;
 `;
 
